@@ -30,4 +30,13 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  title: "Library App"
+  home: "Home"
+  home_text: "This is the home page"
+  books: "Books"
+  our_books: "Our Books"
+  book_list: "Book List"
+  admin_site: "Admin Site"
+  logo: "Logo"
+  requests: "Requests"
+  log_in: "Log in"
