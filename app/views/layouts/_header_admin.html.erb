@@ -1,10 +1,17 @@
-<header class="navbar navbar-fixed-top navbar-inverse">
-  <div class="container">
-    <%= link_to t("logo"), root_path, id: "logo" %>
-    <nav>
-      <ul class="nav navbar-nav navbar-right">
-        <li><%= link_to t("requests"), "#" %></li>
-      </ul>
-    </nav>
-  </div>
+<header>
+   <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark" style="height:80px">
+      <div class="container-fluid">
+         <%= link_to t("title"), "#" , class: "navbar-brand px-5"%>
+         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+         <span class="navbar-toggler-icon"></span>
+         </button>
+         <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav d-inline-flex px-5 mt-2 mt-md-0 ms-md-auto">
+               <h5 class="nav-item px-3">
+                  <%= link_to t("request"), "#", class: "nav-link" %>
+               </h5>
+            </ul>
+         </div>
+      </div>
+   </nav>
 </header>
