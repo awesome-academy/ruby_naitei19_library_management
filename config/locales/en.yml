@@ -59,7 +59,6 @@ en:
   password: "Password"
   password_confirmation: "Password confirmation"
   session_danger: "Invalid email/password combination"
-  setting: "Setting"
   edit_user: "Edit Profile"
   update_profile: "Update your profile"
   create_account: "Create account"
@@ -160,3 +159,13 @@ en:
     update_button: "Update your review"
     delete_button: "Delete your review"
     delete_confirm: "Are you sure you want to delete"
+  transactions:
+    model:
+      validates:
+        compare_date: "must be before the expiration date"
+        invalid_books_number: "Invalid books number!"
+    create:
+      success: "Create successfully!"
+      fail: "Create failed!"
+    new:
+      create: "Create new transaction"

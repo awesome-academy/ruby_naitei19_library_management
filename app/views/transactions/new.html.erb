@@ -1,0 +1,26 @@
+<h1><%= t("transactions.new.create") %></h1>
+
+<%= render "books/book_card" %>
+
+<%= form_with(model: [@book, @transaction], local: true) do |form| %>
+  <%= render "shared/object_error_messages", object: form.object %>
+
+  <%= form.hidden_field :user_id, value: current_user&.id %>
+
+  <div class="mb-3">
+    <%= form.label :borrow_date, class: "form-label" %>
+    <%= form.date_field :borrow_date, class: "form-control" %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :expire_date, class: "form-label" %>
+    <%= form.date_field :expire_date, class: "form-control"%>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :amount, class: "form-label" %>
+    <%= form.number_field :amount, class: "form-control", max: @book.book_amount %>
+  </div>
+
+  <%= form.submit t("transactions.new.create"), class: "btn btn-primary" %>
+<% end %>
