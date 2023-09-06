@@ -21,6 +21,7 @@ Rails.application.routes.draw do
 
     resources :books do
       resources :like_books
+      resources :transactions
     end
 
     namespace :admin do
@@ -35,6 +36,7 @@ Rails.application.routes.draw do
           post "active"
         end
       end
+      resources :transactions
     end
 
     resources :books, only: :show do

@@ -4,30 +4,31 @@
    <%= link_to t("title"), admin_static_pages_path , class: "navbar-brand ps-3"%>
    <!-- Navbar Search-->
    <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
-         <%= link_to t("admin.header.user"), admin_users_path , class: "navbar-brand ps-3"%>
+      <%= link_to t("admin.header.user"), admin_users_path , class: "navbar-brand ps-3"%>
    </form>
    <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
-         <%= link_to t("admin.header.book"), admin_books_path , class: "navbar-brand ps-3"%>
+      <%= link_to t("admin.header.book"), admin_books_path , class: "navbar-brand ps-3"%>
    </form>
    <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
-         <%= link_to t("admin.header.author"), admin_authors_path , class: "navbar-brand ps-3"%>
+      <%= link_to t("admin.header.author"), admin_authors_path , class: "navbar-brand ps-3"%>
    </form>
    <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
-         <%= link_to t("admin.header.publisher"), admin_publishers_path , class: "navbar-brand ps-3"%>
+      <%= link_to t("admin.header.publisher"), admin_publishers_path , class: "navbar-brand ps-3"%>
    </form>
    <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
-         <%= link_to t("admin.header.category"), admin_categories_path , class: "navbar-brand ps-3"%>
+      <%= link_to t("admin.header.category"), admin_categories_path , class: "navbar-brand ps-3"%>
    </form>
    <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
+      <%= link_to t("admin.header.transaction"), admin_transactions_path , class: "navbar-brand ps-3"%>
    </form>
 
    <!-- Navbar-->
    <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
-         <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
-            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+      <li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
+           <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                <li><a class="dropdown-item" href="#!">Logout</a></li>
             </ul>
-         </li>
+      </li>
    </ul>
    </nav>

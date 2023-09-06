@@ -1,0 +1,44 @@
+<% provide(:title, t("admin.header.transaction")) %>
+<div id="layoutSidenav_content">
+  <main>
+    <div class="container-fluid px-4">
+        <h1 class="mt-4"><%= t("admin.header.transaction")%></h1>
+
+        <div class="card mb-4">
+          <h5 class="card-header">
+            <%= t("admin.header.transaction")%> <%= t("admin.db") %>
+          </h5>
+          <div class="card-body">
+            <div class="search-box">
+              <%= form_tag admin_transactions_path, method: :get do %>
+                <div class="field">
+                <%= label_tag :transaction_status %>
+                <%= select_tag :transaction_status, options_for_select([[t("admin.transaction.select.pending"), t("admin.transaction.select.pending")], [t("admin.transaction.select.fail"), t("admin.transaction.select.fail")], [t("admin.transaction.select.success"), t("admin.transaction.select.success")], [t("admin.transaction.select.expire"), t("admin.transaction.select.expire")]], (params[:transaction_status] || t("admin.transaction.select.pending"))), class: "form-control" %>
+                </div>
+                <%= submit_tag t("admin.author.search_button"), class: "btn btn-primary" %>
+              <% end %>
+            </div>
+            <table class="table table-bordered">
+              <thead >
+                <tr>
+                  <th><%=t("admin.transaction.table.id")%></th>
+                  <th><%=t("admin.transaction.table.username")%></th>
+                  <th><%=t("admin.transaction.table.book_title")%></th>
+                  <th><%=t("admin.transaction.table.requests_date")%></th>
+                  <th><%=t("admin.transaction.table.expire_date")%></th>
+                  <th><%=t("admin.transaction.table.status")%></th>
+                  <th><%=t("admin.transaction.table.books_amount")%></th>
+                  <th><%=t("admin.transaction.table.actions")%></th>
+                </tr>
+              </thead>
+              <tbody>
+                <hr>
+                <%= render @transactions %>
+                <%= will_paginate renderer: WillPaginate::ActionView::BootstrapLinkRenderer %>
+              </tbody>
+            </table>
+          </div>
+        </div>
+    </div>
+  </main>
+</div>
