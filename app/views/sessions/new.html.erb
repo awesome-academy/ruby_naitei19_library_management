@@ -1,0 +1,19 @@
+<% provide(:title, t("log_in")) %>
+
+<div class="form-signin-container">
+  <div class="form-signin">
+    <%= form_for :session, url: login_path, html: { class: "form-signin" } do |f| %>
+      <h1 class="h3 mb-3 fw-normal"><%= t("log_in") %></h1>
+      <div class="form-floating">
+        <%= f.email_field :email, class: "form-control", id: "floatingInput"%>
+        <label for="floatingInput"><%= t("email") %></label>
+      </div>
+      <div class="form-floating">
+        <%= f.password_field :password, class: "form-control", id: "floatingPassword"%>
+        <label for="floatingPassword"><%= t("password") %></label>
+      </div>
+      <%= f.submit "Log in", class: "w-100 btn btn-lg btn-primary" %>
+    <% end %>
+    <p> <%= t("new_user") %> <%= link_to t("sign_up_now"), signup_path %></p>
+  </div>
+</div>
