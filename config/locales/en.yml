@@ -52,9 +52,7 @@ en:
   profile: "Profile"
   setting: "Settings"
   log_out: "Log out"
-  not_found: "Not found user!"
   user_created: "User created successful"
-  sign_up: "Sign up"
   name: "Name"
   email: "Email address"
   password: "Password"
@@ -72,3 +70,17 @@ en:
     wrong: "Something went wrong"
     back: "Back"
     user_rate: "Rate"
+  authors:
+    index:
+      total: "Total Authors Number:"
+      all: "All Authors List"
+    show:
+      created_at: "Created At"
+      books: "Books"
+      about: "About"
+      dob: "Date of Birth:"
+      nationality: "Nationality:"
+      books_info: "Books Info"
+      author_not_found: "Author not found !"
+      detail: "Details"
+      edit_profile: "Edit profile"
