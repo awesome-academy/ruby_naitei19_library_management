@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
   scope "(:locale)", locale: /en|vi/ do
-    root "pages#home"
-    get "/books", to: "pages#books"
     get "/signup", to: "users#new"
     post "/signup", to: "users#create"
     resources :users, only: %i(new create show)
@@ -13,5 +11,8 @@ Rails.application.routes.draw do
       root to: "static_pages#index"
       resources :static_pages
     end
+    root "static_pages#index"
+    get "static_pages/index"
+    resources :books, only: :show
   end
 end
