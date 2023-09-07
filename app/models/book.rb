@@ -10,4 +10,13 @@ class Book < ApplicationRecord
   has_many :user_like_books, dependent: :destroy
   has_many :users, through: :user_like_books
   delegate :name, to: :publisher, prefix: true, allow_nil: true
+  scope :search_all, lambda {|query|
+    joins(:publisher, :authors, :categories).where(
+      "books.title LIKE :q OR books.description LIKE :q
+        OR publishers.name LIKE :q OR authors.name LIKE :q
+        OR categories.category_name LIKE :q
+        ",
+      q: "%#{query}%"
+    )
+  }
 end
