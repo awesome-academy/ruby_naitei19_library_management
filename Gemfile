@@ -6,7 +6,6 @@ ruby "3.2.2"
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "bcrypt", "3.1.13"
 gem "bootstrap", "~> 5.1", ">= 5.1.3"
-gem "config"
 gem "rails", "~> 7.0.5"
 gem "rails-i18n"
 
@@ -15,6 +14,16 @@ gem "sprockets-rails"
 
 # Use mysql as the database for Active Record
 gem "mysql2", "~> 0.5"
+
+gem "faker"
+
+gem "bootstrap-icons-helper"
+
+gem "will_paginate", "3.3.1"
+
+gem "config"
+
+gem "will_paginate-bootstrap5", "~> 0.2.4"
 
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", "~> 5.0"

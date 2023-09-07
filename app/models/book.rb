@@ -9,4 +9,5 @@ class Book < ApplicationRecord
   has_many :authors, through: :books_authors
   has_many :user_like_books, dependent: :destroy
   has_many :users, through: :user_like_books
+  delegate :name, to: :publisher, prefix: true, allow_nil: true
 end
