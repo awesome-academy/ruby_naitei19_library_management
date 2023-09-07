@@ -1,0 +1,28 @@
+<div class="container">
+    <div class="row">
+        <div class="col-lg-10 mx-auto mb-4">
+            <div class="section-title text-center ">
+                <h3 class="top-c-sep"><%= t("authors.index.all")%></h3>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-10 mx-auto">
+            <div class="career-search mb-60">
+
+                <div class="filter-result">
+                    <h2 class="mb-30 ff-montserrat">
+                       <%= t("authors.index.total")%> <%=@authors.count%>
+                    </h2>
+
+
+                <%= will_paginate renderer: WillPaginate::ActionView::BootstrapLinkRenderer %>
+                  <%= render @authors %>
+                <%= will_paginate %>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -5,3 +5,5 @@ degit:
   length_email: 50
 page:
   limit_items: 8
+authors:
+  per_page: 10

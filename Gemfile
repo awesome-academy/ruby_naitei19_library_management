@@ -19,8 +19,6 @@ gem "faker"
 
 gem "bootstrap-icons-helper"
 
-gem "will_paginate", "3.3.1"
-
 gem "config"
 
 gem "will_paginate-bootstrap5", "~> 0.2.4"
@@ -57,6 +55,10 @@ gem "bootsnap", require: false
 
 # Use Sass to process CSS
 # gem "sassc-rails"
+
+gem "bootstrap-will_paginate", "1.0.0"
+
+gem "will_paginate-bootstrap-style"
 
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html]
 # gem "image_processing", "~> 1.2"
