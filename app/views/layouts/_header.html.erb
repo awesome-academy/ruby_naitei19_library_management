@@ -13,9 +13,18 @@
                <h5 class="nav-item px-3">
                   <%= link_to t("books"), "#", class: "nav-link" %>
                </h5>
-               <h5 class="nav-item px-3">
-                  <%= link_to t("login"), "#", class: "nav-link" %>
-               </h5>
+               <% if logged_in? %>
+                  <h5 class="nav-item px-3">
+                     <%= link_to t("log_out"), logout_path,
+                                             data: { "turbo-method": :delete },
+                                             class: "nav-link" %>
+                  </h5>
+                  <% else %>
+                  <h5 class="nav-item px-3">
+                     <%= link_to t("log_in"), login_path, class: "nav-link" %>
+                  </h5>
+                  <% end %>
+
             </ul>
          </div>
       </div>

@@ -1,0 +1,27 @@
+<% provide(:title, t("sign_up")) %>
+
+<div class="form-signin-container">
+  <div class="form-signin">
+    <%= form_for :user, url: signup_path, html: { class: "form-signin" } do |f| %>
+      <%= render "shared/error_messages" %>
+      <h1 class="h3 mb-3 fw-normal"><%= t("sign_up") %></h1>
+      <div class="form-floating">
+        <%= f.text_field :name, class: "form-control", id: "floatingInput"%>
+        <label for="floatingInput"><%= t("name") %></label>
+      </div>
+      <div class="form-floating">
+        <%= f.email_field :email, class: "form-control", id: "floatingInput"%>
+        <label for="floatingInput"><%= t("email") %></label>
+      </div>
+      <div class="form-floating">
+        <%= f.password_field :password, class: "form-control", id: "floatingPassword"%>
+        <label for="floatingPassword"><%= t("password") %></label>
+      </div>
+      <div class="form-floating">
+        <%= f.password_field :password_confirmation, class: "form-control", id: "floatingPassword"%>
+        <label for="floatingPassword"><%= t("password_confirmation") %></label>
+      </div>
+      <%= f.submit "Create account", class: "w-100 btn btn-lg btn-primary" %>
+    <% end %>
+  </div>
+</div>
