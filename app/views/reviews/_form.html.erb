@@ -1,0 +1,5 @@
+<% if current_user.has_reviewed? @book.id %>
+  <%= render "reviews/form_edit"%>
+<%else%>
+  <%= render "reviews/form_add"%>
+<%end%>
