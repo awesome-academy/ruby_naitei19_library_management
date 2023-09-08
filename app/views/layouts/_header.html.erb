@@ -15,6 +15,9 @@
                </h5>
                <% if logged_in? %>
                   <h5 class="nav-item px-3">
+                     <%= link_to t("setting"), edit_user_path(current_user), class: "nav-link"%>
+                  </h5>
+                  <h5 class="nav-item px-3">
                      <%= link_to t("log_out"), logout_path,
                                              data: { "turbo-method": :delete },
                                              class: "nav-link" %>
