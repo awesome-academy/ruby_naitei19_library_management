@@ -1,17 +1,33 @@
-<header>
-   <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark" style="height:80px">
-      <div class="container-fluid">
-         <%= link_to t("title"), "#" , class: "navbar-brand px-5"%>
-         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-         <span class="navbar-toggler-icon"></span>
-         </button>
-         <div class="collapse navbar-collapse" id="navbarCollapse">
-            <ul class="navbar-nav d-inline-flex px-5 mt-2 mt-md-0 ms-md-auto">
-               <h5 class="nav-item px-3">
-                  <%= link_to t("request"), "#", class: "nav-link" %>
-               </h5>
+
+<nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
+   <!-- Navbar Brand-->
+   <%= link_to t("title"), admin_static_pages_path , class: "navbar-brand ps-3"%>
+   <!-- Navbar Search-->
+   <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
+         <%= link_to t("admin.header.user"), "#" , class: "navbar-brand ps-3"%>
+   </form>
+   <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
+         <%= link_to t("admin.header.book"), admin_books_path , class: "navbar-brand ps-3"%>
+   </form>
+   <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
+         <%= link_to t("admin.header.author"), "#" , class: "navbar-brand ps-3"%>
+   </form>
+   <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
+         <%= link_to t("admin.header.publisher"), "#" , class: "navbar-brand ps-3"%>
+   </form>
+   <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
+         <%= link_to t("admin.header.category"), "#" , class: "navbar-brand ps-3"%>
+   </form>
+   <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
+   </form>
+
+   <!-- Navbar-->
+   <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
+         <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
+            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+               <li><a class="dropdown-item" href="#!">Logout</a></li>
             </ul>
-         </div>
-      </div>
+         </li>
+   </ul>
    </nav>
-</header>

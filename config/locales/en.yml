@@ -57,6 +57,7 @@ en:
   email: "Email address"
   password: "Password"
   password_confirmation: "Password confirmation"
+  session_danger: "Invalid email/password combination"
   book:
     name: "Name"
     authors: "Authors"
@@ -86,3 +87,30 @@ en:
       author_not_found: "Author not found !"
       detail: "Details"
       edit_profile: "Edit profile"
+  admin:
+    delete: "Are you sure"
+    db: "Database"
+    header:
+      user: "User"
+      book: "Book"
+      author: "Author"
+      publisher: "Publisher"
+      category: "Category"
+    user:
+      new: "Create new user"
+      name: "Name"
+      date_of_birth: "Date of birth"
+      address: "Address"
+      email: "Email"
+      button: "Create"
+      edit: "Edit a user"
+    book:
+      new: "Create new book"
+      description: "Description"
+      published_year: "Published year"
+      book_amount: "Book amount"
+      publisher_id: "Publisher"
+      average_rating: "Average rating"
+      button: "Create"
+      category: "Category"
+      image: "Image"

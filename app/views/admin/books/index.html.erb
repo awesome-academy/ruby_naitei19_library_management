@@ -1,0 +1,40 @@
+<% provide(:title, t("admin.header.book")) %>
+<div id="layoutSidenav_content">
+  <main>
+    <div class="container-fluid px-4">
+        <h1 class="mt-4"><%= t("admin.header.book")%></h1>
+        <div class="card mb-4">
+          <div class="card-body text-center ">
+            <%= link_to t("admin.book.new"), "#", class: "btn btn-primary" %>
+          </div>
+        </div>
+        <div class="card mb-4">
+          <div class="card-header">
+              <i class="fas fa-table me-1"></i>
+              <%= t("admin.header.book")%> <%= t("admin.db") %>
+          </div>
+          <div class="card-body">
+            <table id="datatablesSimple">
+              <thead>
+                <tr>
+                  <th><%= t("admin.book.title") %></th>
+                  <th><%= t("admin.book.image") %></th>
+                  <th><%= t("admin.book.description") %></th>
+                  <th><%= t("admin.book.category") %></th>
+                  <th><%= t("admin.book.published_year") %></th>
+                  <th><%= t("admin.book.book_amount") %></th>
+                  <th><%= t("admin.book.publisher_id") %></th>
+                  <th><%= t("admin.book.authors") %></th>
+                  <th><%= t("admin.book.average_rating") %></th>
+                  <th><%= t("admin.book.actions") %></th>
+                </tr>
+              </thead>
+              <tbody>
+                <%= render partial: "book", collection: @books %>
+              </tbody>
+            </table>
+          </div>
+        </div>
+    </div>
+  </main>
+</div>

@@ -10,6 +10,7 @@ Rails.application.routes.draw do
     namespace :admin do
       root to: "static_pages#index"
       resources :static_pages
+      resources :books, only: :index
     end
     root "static_pages#index"
     get "static_pages/index"
