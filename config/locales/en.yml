@@ -70,6 +70,8 @@ en:
     wrong: "Something went wrong"
     back: "Back"
     user_rate: "Rate"
+    search_place: "Search place"
+    search_button: "Search"
   authors:
     index:
       total: "Total Authors Number:"
