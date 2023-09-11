@@ -1,0 +1,12 @@
+<tr>
+  <td><%= category.category_name %></td>
+  <td>
+    <%= link_to "#" do %>
+      <i class="fas fa-edit"></i>
+    <% end %>
+    <span class="mx-2"></span>
+    <%= link_to "#", method: :delete, data: { confirm: t("admin.delete") } do %>
+      <i class="fas fa-trash"></i>
+    <% end %>
+  </td>
+</tr>
