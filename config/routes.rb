@@ -2,9 +2,10 @@ Rails.application.routes.draw do
   scope "(:locale)", locale: /en|vi/ do
     get "/signup", to: "users#new"
     post "/signup", to: "users#create"
-    resources :users, only: %i(new create show)
+    resources :users
     get "/login", to: "sessions#new"
     post "/login", to: "sessions#create"
+    get "/logout", to: "sessions#destroy"
     delete "/logout", to: "sessions#destroy"
 
     namespace :admin do

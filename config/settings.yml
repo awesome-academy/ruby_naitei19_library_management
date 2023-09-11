@@ -3,6 +3,7 @@ regex:
 degit:
   length_name: 30
   length_email: 50
+  length_6: 6
 page:
   limit_items: 8
 authors:
