@@ -1,0 +1,63 @@
+<%= form_with(model: @book, url: admin_books_path ) do |f| %>
+  <div class="form-group">
+    <%= f.label :title, t("admin.book.title") %>
+    <%= f.text_field :title, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :description, t("admin.book.description") %>
+    <%= f.text_area :description, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :published_year, t("admin.book.published_year") %>
+    <%= f.number_field :published_year, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :book_amount, t("admin.book.book_amount") %>
+    <%= f.number_field :book_amount, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :publisher_id, t("admin.book.publisher_id") %>
+    <%= f.collection_select :publisher_id, Publisher.all, :id, :name, { prompt: "Select Publisher" }, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :category_ids, t("admin.book.categories") %>
+    <%= f.collection_check_boxes :category_ids, Category.all, :id, :category_name do |cb| %>
+      <div class="form-check">
+        <%= cb.check_box %>
+        <%= cb.label %>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :author_ids, t("admin.book.authors") %>
+    <%= f.collection_check_boxes :author_ids, Author.all, :id, :name do |cb| %>
+      <div class="form-check">
+        <%= cb.check_box %>
+        <%= cb.label %>
+      </div>
+    <% end %>
+  </div>
+
+
+  <div class="form-group">
+    <%= f.label :average_rating, t("admin.book.average_rating") %>
+    <%= f.number_field :average_rating, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.fields_for :images do |ff| %>
+      <%= ff.label :image, t("admin.book.image") %>
+      <%= ff.file_field :image, class: "form-control" %>
+    <% end %>
+  </div>
+
+  <div class="form-group">
+    <%= f.submit t("admin.book.button"), class: "btn btn-primary" %>
+  </div>
+<% end %>

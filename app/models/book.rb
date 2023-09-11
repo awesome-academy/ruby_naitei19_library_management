@@ -10,4 +10,5 @@ class Book < ApplicationRecord
   has_many :user_like_books, dependent: :destroy
   has_many :users, through: :user_like_books
   delegate :name, to: :publisher, prefix: true, allow_nil: true
+  accepts_nested_attributes_for :images, allow_destroy: true
 end

@@ -10,6 +10,9 @@ Rails.application.routes.draw do
     namespace :admin do
       root to: "static_pages#index"
       resources :static_pages
+      get "/admin/books/new", to: "books#new"
+      post "/admin/books/new", to: "books#create"
+      resources :books, only: [:index, :new, :create]
     end
     root "static_pages#index"
     get "static_pages/index"

@@ -23,8 +23,10 @@ gem "will_paginate", "3.3.1"
 
 gem "config"
 
+gem "active_storage_validations", "0.8.2"
+gem "image_processing", "1.9.3"
+gem "mini_magick", "4.9.5"
 gem "will_paginate-bootstrap5", "~> 0.2.4"
-
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", "~> 5.0"
 
