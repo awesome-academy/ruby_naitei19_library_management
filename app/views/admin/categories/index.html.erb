@@ -1,0 +1,43 @@
+<% provide(:title, t("admin.header.category")) %>
+<div id="layoutSidenav_content">
+  <main>
+    <div class="container-fluid px-4">
+        <h1 class="mt-4"><%= t("admin.header.category")%></h1>
+        <div class="card mb-4">
+          <div class="card-body text-center ">
+            <%= link_to t("admin.category.new"), "#", class: "btn btn-primary" %>
+          </div>
+        </div>
+        <div class="card mb-4">
+          <div class="card-header">
+              <i class="fas fa-table me-1"></i>
+              <%= t("admin.header.category")%> <%= t("admin.db") %>
+          </div>
+          <div class="card-body">
+            <div class="search-box">
+              <%= form_tag admin_categories_path, method: :get do %>
+                <%= text_field_tag :category_search, params[:category_search], placeholder: t("admin.category.search_placeholder"), class: "form-control" %>
+                <%= submit_tag t("admin.category.search_button"), class: "btn btn-primary" %>
+              <% end %>
+            </div>
+            <table class="table table-bordered">
+              <thead >
+                <tr>
+                  <th><%= t("admin.category.name") %></th>
+                  <th><%= t("admin.category.actions") %></th>
+                </tr>
+              </thead>
+              <tbody>
+                <%= render partial: "category", collection: @categories %>
+              </tbody>
+            </table>
+          </div>
+          <div class="d-flex justify-content-center align-items-center mt-5">
+            <div class="digg_pagination">
+                <%= will_paginate @categories%>
+            </div>
+          </div>
+        </div>
+    </div>
+  </main>
+</div>
