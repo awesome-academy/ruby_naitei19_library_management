@@ -1,0 +1,45 @@
+<% provide(:title, t("admin.header.publisher")) %>
+<div id="layoutSidenav_content">
+  <main>
+    <div class="container-fluid px-4">
+        <h1 class="mt-4"><%= t("admin.header.publisher")%></h1>
+        <div class="card mb-4">
+          <div class="card-body text-center ">
+            <%= link_to t("admin.publisher.new"), "#", class: "btn btn-primary" %>
+          </div>
+        </div>
+        <div class="card mb-4">
+          <div class="card-header">
+              <i class="fas fa-table me-1"></i>
+              <%= t("admin.header.publisher")%> <%= t("admin.db") %>
+          </div>
+          <div class="card-body">
+            <div class="search-box">
+              <%= form_tag admin_publishers_path, method: :get do %>
+                <%= text_field_tag :publisher_search, params[:publisher_search], placeholder: t("admin.publisher.search_placeholder"), class: "form-control" %>
+                <%= submit_tag t("admin.publisher.search_button"), class: "btn btn-primary" %>
+              <% end %>
+            </div>
+            <table class="table table-bordered">
+              <thead >
+                <tr>
+                  <th><%= t("admin.publisher.name") %></th>
+                  <th><%= t("admin.publisher.email") %></th>
+                  <th><%= t("admin.publisher.address") %></th>
+                  <th><%= t("admin.publisher.actions") %></th>
+                </tr>
+              </thead>
+              <tbody>
+                <%= render partial: "publisher", collection: @publishers %>
+              </tbody>
+            </table>
+          </div>
+          <div class="d-flex justify-content-center align-items-center mt-5">
+            <div class="digg_pagination">
+                <%= will_paginate @publishers%>
+            </div>
+          </div>
+        </div>
+    </div>
+  </main>
+</div>
