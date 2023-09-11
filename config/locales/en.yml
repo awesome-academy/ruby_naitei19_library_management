@@ -112,3 +112,11 @@ en:
       button: "Create"
       category: "Category"
       image: "Image"
+    author:
+      new: "Create new author"
+      country: "Country"
+      name: "Name"
+      date_of_birth: "Date of birth"
+      avatar: "Avatar"
+      search_placeholder: "Please enter the author's name you want to find"
+      search_button: "Search"

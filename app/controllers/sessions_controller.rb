@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
       if @user.admin?
         redirect_to admin_root_path
       else
-        redirect_to user
+        redirect_to @user
       end
     else
       # Create an error message.

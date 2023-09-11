@@ -1,0 +1,46 @@
+<% provide(:title, t("admin.header.author")) %>
+<div id="layoutSidenav_content">
+  <main>
+    <div class="container-fluid px-4">
+        <h1 class="mt-4"><%= t("admin.header.author")%></h1>
+        <div class="card mb-4">
+          <div class="card-body text-center ">
+            <%= link_to t("admin.author.new"), "#", class: "btn btn-primary" %>
+          </div>
+        </div>
+        <div class="card mb-4">
+          <div class="card-header">
+              <i class="fas fa-table me-1"></i>
+              <%= t("admin.header.author")%> <%= t("admin.db") %>
+          </div>
+          <div class="card-body">
+            <div class="search-box">
+              <%= form_tag admin_authors_path, method: :get do %>
+                <%= text_field_tag :author_search, params[:author_search], placeholder: t("admin.author.search_placeholder"), class: "form-control" %>
+                <%= submit_tag t("admin.author.search_button"), class: "btn btn-primary" %>
+              <% end %>
+            </div>
+            <table class="table table-bordered">
+              <thead >
+                <tr>
+                  <th><%= t("admin.author.name") %></th>
+                  <th><%= t("admin.author.avatar") %></th>
+                  <th><%= t("admin.author.country") %></th>
+                  <th><%= t("admin.author.date_of_birth") %></th>
+                  <th><%= t("admin.book.actions") %></th>
+                </tr>
+              </thead>
+              <tbody>
+                <%= render partial: "author", collection: @authors %>
+              </tbody>
+            </table>
+          </div>
+          <div class="d-flex justify-content-center align-items-center mt-5">
+            <div class="digg_pagination">
+                <%= will_paginate @authors%>
+            </div>
+          </div>
+        </div>
+    </div>
+  </main>
+</div>
