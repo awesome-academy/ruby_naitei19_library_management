@@ -130,3 +130,10 @@ en:
       avatar: "Avatar"
       search_placeholder: "Please enter the author's name you want to find"
       search_button: "Search"
+    publisher:
+      new: "Create new publisher"
+      name: "Name"
+      address: "Address"
+      email: "Email"
+      search_placeholder: "Please enter the publisher's name you want to find"
+      search_button: "Search"
