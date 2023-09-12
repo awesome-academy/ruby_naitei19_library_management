@@ -11,3 +11,11 @@ authors:
 per_page: 10
 category:
   max: 20
+validate:
+  email:
+    length:
+      max: 255
+    regex: !ruby/regexp /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
+  name:
+    length:
+      max: 50
