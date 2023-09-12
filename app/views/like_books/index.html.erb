@@ -1,5 +1,5 @@
-<div class="d-flex justify-content-center align-items-center mt-4">
-  <%= form_with url: user_like_books_path, method: "get", class: "form-inline" do |form| %>
+<div class="d-flex justify-content-center align-items-center m-5">
+  <%= form_with url: user_like_books_path(current_user), method: "get", class: "form-inline", autocomplete: "off"  do |form| %>
     <div class="input-group">
       <%= form.text_field :search, id: "form1", class: "form-control-lg", placeholder: "Search" %>
         <%= button_tag(type: "submit", class: "btn btn-primary") do %>

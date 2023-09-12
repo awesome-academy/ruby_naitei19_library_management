@@ -67,6 +67,7 @@ en:
   please_login: "Please Login"
   you_cannot: "You cannot edit"
   not_logged_in: "Not logged in"
+  back_button: "Back"
   book:
     name: "Name"
     authors: "Authors"
@@ -178,3 +179,9 @@ en:
       fail: "Create failed!"
     new:
       create: "Create new transaction"
+  like:
+    like_fail: "Something went wrong, can't like this book"
+    unlike_fail: "Something went wrong, can't unlike this book"
+    you: "You and "
+    only_you: "Only you like this book"
+    people: " people like the book"

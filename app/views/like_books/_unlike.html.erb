@@ -1,0 +1,3 @@
+<%= link_to book_like_book_path(@book, current_user.books.find_by(id: @book.id)), data: { "turbo-method": :delete}, class: "unlike-button", id: "unlike", remote: true  do%>
+  <%= render "shared/tym_icon"%>
+<% end %>
