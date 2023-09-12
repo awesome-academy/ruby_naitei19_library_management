@@ -14,7 +14,7 @@ Rails.application.routes.draw do
       resources :books, only: :index
       resources :authors, only: :index
       resources :publishers, only: :index
-      resources :categories, only: :index
+      resources :categories, only: [:index, :new, :create]
     end
     root "static_pages#index"
     get "static_pages/index"

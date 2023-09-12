@@ -142,3 +142,5 @@ en:
       name: "Name"
       search_placeholder: "Please enter the category's name you want to find"
       search_button: "Search"
+      create_success: "Create new category successful"
+      create_fail: "Failed to create a new category"
