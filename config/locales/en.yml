@@ -52,6 +52,7 @@ en:
   profile: "Profile"
   setting: "Settings"
   log_out: "Log out"
+  favorites: "Favorites"
   user_created: "User created successful"
   name: "Name"
   email: "Email address"

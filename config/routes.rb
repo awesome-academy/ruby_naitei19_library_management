@@ -14,6 +14,10 @@ Rails.application.routes.draw do
       resources :reviews
     end
 
+    resources :users do
+      resources :like_books, only: :index
+    end
+
     namespace :admin do
       root to: "static_pages#index"
       resources :static_pages
