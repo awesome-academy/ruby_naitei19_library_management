@@ -29,6 +29,10 @@ class User < ApplicationRecord
     BCrypt::Password.create string, cost
   end
 
+  def has_reviewed? book_id
+    reviews.exists?(book_id:)
+  end
+
   private
 
   def downcase_email
