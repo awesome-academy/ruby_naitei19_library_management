@@ -1,11 +1,18 @@
-<div class="d-flex justify-content-center align-items-center m-5">
+<div class="d-flex justify-content-center align-items-center mt-4">
   <%= form_with url: static_pages_index_path, method: "get", class: "form-inline" do |form| %>
     <div class="input-group">
-      <%= form.text_field :search, placeholder: t("book.search_place"), class: "form-control" %>
-      <div class="input-group-append px-3">
-        <%= form.submit t("book.search_button"), class: "btn btn-primary" %>
-      </div>
+      <%= form.text_field :search, id: "form1", class: "form-control-lg", placeholder: "Search" %>
+        <%= button_tag(type: "submit", class: "btn btn-primary") do %>
+          <i class="bi bi-search"></i>
+        <% end %>
     </div>
   <% end %>
 </div>
-<%= render "shared/show_book_item" %>
+
+<section id="blog" class="blog">
+  <div class="container" data-aos="fade-up">
+    <div class="row gy-4 posts-list">
+      <%= render "shared/show_book_item"%>
+    </div>
+  </div>
+</section>

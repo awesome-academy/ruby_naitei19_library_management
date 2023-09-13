@@ -1,65 +1,76 @@
-<div><%= link_to :back, class: "btn-lg" do %>
+<div>
+   <%= link_to :back, class: "btn-lg" do %>
    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
       <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"/>
    </svg>
-<% end %>
-
-<div class="container pb-5" >
-   <h1><%= @book.title %></h1>
-   <div id="carouselExampleControls" class="carousel slide card-img-top top-0 start-50 translate-middle-x" data-bs-ride="carousel">
-      <div class="carousel-inner " >
-         <% @book.images.each_with_index do |image, index| %>
+   <% end %>
+   <div class="container pb-5" >
+      <h1><%= @book.title %></h1>
+      <div id="carouselExampleControls" class="carousel slide card-img-top top-0 start-50 translate-middle-x" data-bs-ride="carousel">
+         <div class="carousel-inner " >
+            <% @book.images.each_with_index do |image, index| %>
             <div class="carousel-item  <%= 'active' if index.zero? %> ">
                <img class="d-block w-100 img-content"  src="<%= image.image %>" alt="Image <%= index + 1 %>">
             </div>
-         <% end %>
+            <% end %>
+         </div>
+         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+         <span class="visually-hidden"></span>
+         </button>
+         <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+         <span class="carousel-control-next-icon" aria-hidden="true"></span>
+         <span class="visually-hidden"></span>
+         </button>
       </div>
-      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="visually-hidden"></span>
-      </button>
-      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="visually-hidden"></span>
-      </button>
-   </div>
-   <div class="row">
-      <div class="col-md-6">
-         <p><strong><%= t("book.authors")%>:</strong> <%= @book.authors.pluck(:name).join(", ") %></p>
-         <p><strong><%= t("book.publisher")%>:</strong> <%= @book.publisher_name %></p>
-         <p><strong><%= t("book.published_year")%>:</strong> <%= @book.published_year %></p>
-         <p><strong><%= t("book.description")%>:</strong> <%= @book.description %></p>
-         <p><strong><%= t("book.amount")%>:</strong> <%= @book.book_amount %></p>
-         <p><strong><%= t("book.categories")%>:</strong> <%= @book.categories.pluck(:category_name).join(", ") %></p>
+      <div class="row">
+         <div class="col-md-6">
+            <p><strong><%= t("book.authors")%>:</strong> <%= @book.authors.pluck(:name).join(", ") %></p>
+            <p><strong><%= t("book.publisher")%>:</strong> <%= @book.publisher_name %></p>
+            <p><strong><%= t("book.published_year")%>:</strong> <%= @book.published_year %></p>
+            <p><strong><%= t("book.description")%>:</strong> <%= @book.description %></p>
+            <p><strong><%= t("book.amount")%>:</strong> <%= @book.book_amount %></p>
+            <p><strong><%= t("book.categories")%>:</strong> <%= @book.categories.pluck(:category_name).join(", ") %></p>
+         </div>
+         <div class="col-md-6 d-flex align-items-end mb-3">
+            <strong><%= t("book.rate")%>: </strong>
+            <%= @book.average_rating.round(1) %>
+            <i class="fa fa-star rating-color mb-1"></i>
+         </div>
       </div>
-      <div class="col-md-6 d-flex align-items-end mb-3">
-         <strong><%= t("book.rate")%>: </strong>
-         <%= @book.average_rating.round(1) %>
-         <i class="fa fa-star rating-color mb-1"></i>
-      </div>
-   </div>
-   <h2><%= t("book.review")%></h2>
-   <% if current_user.present? %>
+      <h2><%= t("book.review")%></h2>
+      <% if current_user.present? %>
       <%= render "reviews/form" %>
-   <% end %>
-   <ul class="list-group">
+      <% end %>
+      <h4 class="comments-count mt-3"><%= @book.reviews.count %> <%= t("book.review")%></h4>
+      <ul class="list-group"></ul>
       <% @book.reviews.each do |review| %>
       <li class="list-group-item">
-         <h4><%= review.user_name %></h4>
-         <p><%= review.comment %></p>
-         <div class="d-flex align-items-center">
-            <h5 class="review-stat"><%= t("book.user_rate")%>: </h5>
-            <div class="small-ratings">
-               <% review.rating.to_i.times do %>
-                  <i class="fa fa-star rating-color"></i>
-               <% end %>
-               <% (5 - review.rating.to_i).times do %>
-                  <i class="fa fa-star"></i>
-               <% end %>
+         <div class="comments">
+            <div class="comment">
+               <div class="d-flex">
+                  <div class="comment-img"><img src="https://symbols.vn/wp-content/uploads/2022/01/Hinh-Levi-Ackerman-Attack-On-Titan-ngau-doc-dao.jpg" alt=""></div>
+                  <div>
+                     <h4><%= review.user_name %></h4>
+                     <time datetime="2020-01-01"><%= formatted_datetime(review.updated_at) %></time>
+                     <p><%= review.comment %></p>
+                     <div class="d-flex align-items-center">
+                        <h5 class="review-stat"><%= t("book.user_rate")%>: </h5>
+                        <div class="small-ratings">
+                           <% review.rating.to_i.times do %>
+                           <i class="fa fa-star rating-color"></i>
+                           <% end %>
+                           <% (5 - review.rating.to_i).times do %>
+                           <i class="fa fa-star"></i>
+                           <% end %>
+                        </div>
+                     </div>
+                  </div>
+               </div>
             </div>
-        </div>
+         </div>
       </li>
-   </ul>
-<% end %>
-</div>
+      <% end %>
+      </ul>
+   </div>
 </div>
