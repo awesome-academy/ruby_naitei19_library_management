@@ -1,38 +1,36 @@
-<header style= "padding-bottom:100px">
-   <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark" style="height:80px">
-      <div class="container-fluid">
-         <%= link_to t("title"), "#" , class: "navbar-brand px-5"%>
-         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-         <span class="navbar-toggler-icon"></span>
-         </button>
-         <div class="collapse navbar-collapse" id="navbarCollapse">
-            <ul class="navbar-nav d-inline-flex px-5 mt-2 mt-md-0 ms-md-auto">
-               <h5 class="nav-item px-3">
-                  <%= link_to t("home"), root_path, class: "nav-link" %>
-               </h5>
-               <h5 class="nav-item px-3">
-                  <%= link_to t("books"), "#", class: "nav-link" %>
-               </h5>
-               <% if logged_in? %>
-                  <h5 class="nav-item px-3">
-                     <%= link_to t("favorites"),user_like_books_path(current_user), class: "nav-link"%>
-                  </h5>
-                  <h5 class="nav-item px-3">
-                     <%= link_to t("setting"), edit_user_path(current_user), class: "nav-link"%>
-                  </h5>
-                  <h5 class="nav-item px-3">
-                     <%= link_to t("log_out"), logout_path,
-                                             data: { "turbo-method": :delete },
-                                             class: "nav-link" %>
-                  </h5>
-                  <% else %>
-                  <h5 class="nav-item px-3">
-                     <%= link_to t("log_in"), login_path, class: "nav-link" %>
-                  </h5>
-                  <% end %>
-
+<header id="header" class="header d-flex align-items-center">
+   <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
+      <h3><%= link_to t("title"), "#" , class: "navbar-brand px-5"%></h3>
+      <nav id="navbar" class="navbar">
+         <ul>
+         <li>
+            <%= link_to t("home"), root_path, class: "nav-link" %>
+         </li>
+         <li>
+            <%= link_to t("books"), "#", class: "nav-link" %>
+         </li>
+         <% if logged_in? %>
+         <li>
+            <%= link_to t("favorites"),user_like_books_path(current_user), class: "nav-link"%>
+         </li>
+         <li class="dropdown">
+            <a href="#"><span><%= t("profile")%></span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
+            <ul>
+               <li>
+                  <%= link_to t("setting"), edit_user_path(current_user), class: "nav-link"%>
+               </li>
+               <li>
+                  <%= link_to t("log_out"), logout_path,
+                     data: { "turbo-method": :delete },
+                     class: "nav-link" %>
+               </li>
             </ul>
-         </div>
-      </div>
-   </nav>
+         </li>
+         <% else %>
+         <li>
+            <%= link_to t("log_in"), login_path, class: "nav-link" %>
+         </li>
+         <% end %>
+      </nav>
+   </div>
 </header>
