@@ -24,7 +24,7 @@ Rails.application.routes.draw do
       resources :books, only: :index
       resources :authors, only: :index
       resources :publishers, only: [:index, :new, :create]
-      resources :categories, only: [:index, :new, :create]
+      resources :categories
     end
 
     resources :books, only: :show do

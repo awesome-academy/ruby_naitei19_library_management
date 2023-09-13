@@ -1,11 +1,13 @@
 <tr>
   <td><%= category.category_name %></td>
   <td>
-    <%= link_to "#" do %>
+    <%= link_to edit_admin_category_path(category) do %>
       <i class="fas fa-edit"></i>
     <% end %>
     <span class="mx-2"></span>
-    <%= link_to "#", method: :delete, data: { confirm: t("admin.delete") } do %>
+
+    <%= link_to  admin_category_path(category), data: { "turbo-method": :delete,
+                                           turbo_confirm: t("admin.delete") } do %>
       <i class="fas fa-trash"></i>
     <% end %>
   </td>

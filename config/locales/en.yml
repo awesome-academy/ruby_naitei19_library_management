@@ -147,6 +147,13 @@ en:
       search_button: "Search"
       create_success: "Create new category successful"
       create_fail: "Failed to create a new category"
+      edit: "Edit category"
+      update_success: "Update new category successful"
+      update_fail: "Failed to update category"
+      destroy_success: "Destroy category successful"
+      destroy_fail: "Failed to destroy category"
+      details: "Category Details"
+      not_found: "Not found category!"
   review:
     add_success: "Review has been created"
     add_fail: "Something went wrong"
