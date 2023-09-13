@@ -4,6 +4,7 @@ degit:
   length_name: 30
   length_email: 50
   length_6: 6
+  min_books: 0
 page:
   limit_items: 8
 authors:

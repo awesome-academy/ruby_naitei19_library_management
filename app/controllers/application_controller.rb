@@ -12,11 +12,11 @@ class ApplicationController < ActionController::Base
     {locale: I18n.locale}
   end
 
+  # Confirms a logged-in user.
   def logged_in_user
     return if logged_in?
 
-    flash[:danger] = t("not_logged_in")
-    store_location
-    redirect_to login_url, status: :see_other
+    flash[:danger] = t("please_login")
+    redirect_to login_path(locale), status: :see_other
   end
 end
