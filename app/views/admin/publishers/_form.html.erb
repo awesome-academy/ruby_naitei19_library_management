@@ -1,0 +1,21 @@
+<%= form_with(model: @publisher, url: admin_publishers_path ) do |f| %>
+  <%= render "shared/error_messages", object: f.object  %>
+  <div class="form-group">
+    <%= f.label :name, t("admin.publisher.name") %>
+    <%= f.text_field :name, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :email, t("admin.publisher.email") %>
+    <%= f.text_field :email, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :address, t("admin.publisher.address") %>
+    <%= f.text_field :address, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.submit t("admin.book.button"), class: "btn btn-primary" %>
+  </div>
+<% end %>

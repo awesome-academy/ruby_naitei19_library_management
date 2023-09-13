@@ -138,6 +138,8 @@ en:
       email: "Email"
       search_placeholder: "Please enter the publisher's name you want to find"
       search_button: "Search"
+      create_success: "Create new publisher successful"
+      create_fail: "Failed to create a new publisher"
     category:
       new: "Create new category"
       name: "Name"
