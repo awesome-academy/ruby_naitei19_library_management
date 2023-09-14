@@ -1,0 +1,3 @@
+<%= link_to book_like_books_path(@book), data: { "turbo-method": :post}, class: "like-button", id: "like", remote: true  do%>
+  <%= render "shared/tym_icon"%>
+<% end %>

@@ -10,12 +10,16 @@ Rails.application.routes.draw do
     get "/logout", to: "sessions#destroy"
     delete "/logout", to: "sessions#destroy"
 
-    resources :books, only: %i(show new create) do
+    resources :books, param: :id, only: %i(show new create) do
       resources :reviews
     end
 
     resources :users do
       resources :like_books, only: :index
+    end
+
+    resources :books do
+      resources :like_books
     end
 
     namespace :admin do
