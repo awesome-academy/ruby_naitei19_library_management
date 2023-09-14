@@ -23,7 +23,7 @@ Rails.application.routes.draw do
       resources :static_pages
       resources :books, only: :index
       resources :authors, only: :index
-      resources :publishers, only: [:index, :new, :create]
+      resources :publishers
       resources :categories
     end
 
