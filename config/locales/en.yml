@@ -132,6 +132,16 @@ en:
       avatar: "Avatar"
       search_placeholder: "Please enter the author's name you want to find"
       search_button: "Search"
+      create_success: "Create new author successful"
+      create_fail: "Failed to create a new author"
+      edit: "Edit author"
+      update_success: "Update new author successful"
+      update_fail: "Failed to update author"
+      destroy_success: "Destroy author successful"
+      destroy_fail: "Failed to destroy author"
+      details: "Author Details"
+      not_found: "Not found author!"
+      no_avatar: "No avatar"
     publisher:
       new: "Create new publisher"
       details: "Publisher Details"
@@ -188,6 +198,9 @@ en:
       fail: "Create failed!"
     new:
       create: "Create new transaction"
+  image:
+    mess1: "must be a valid image format"
+    mess2: "should be less than 5MB"
   like:
     like_fail: "Something went wrong, can't like this book"
     unlike_fail: "Something went wrong, can't unlike this book"

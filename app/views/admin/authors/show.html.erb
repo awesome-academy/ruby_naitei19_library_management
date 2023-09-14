@@ -1,0 +1,45 @@
+<% provide(:title, t("admin.author.details")) %>
+<div id="layoutSidenav_content">
+  <main>
+    <div class="container-fluid px-4">
+      <h1 class="mt-4"><%= t("admin.author.details") %></h1>
+
+      <div class="card mb-4">
+        <div class="card-body">
+          <h2 class="mb-4"><%= t("admin.author.information") %></h2>
+
+          <div class="row">
+            <div class="col-md-3"><strong><%= t("admin.author.name") %>:</strong></div>
+            <div class="col-md-9"><%= @author.name %></div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-3"><strong><%= t("admin.author.country") %>:</strong></div>
+            <div class="col-md-9"><%= @author.country %></div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-3"><strong><%= t("admin.author.date_of_birth") %>:</strong></div>
+            <div class="col-md-9"><%= @author.date_of_birth %></div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-3"><strong><%= t("admin.author.avatar") %>:</strong></div>
+            <div class="col-md-9">
+              <% if @author.avatar.attached? %>
+                <%= image_tag url_for(@author.avatar), alt: @author.name, class: "book-image" %>
+              <% else %>
+                <%= t("admin.author.no_avatar") %>
+              <% end %>
+            </div>
+          </div>
+
+          <div class="mt-4">
+            <%= link_to t("admin.author.edit"), edit_admin_author_path(@author), class: "btn btn-primary" %>
+            <%= link_to t("admin.book.back"), admin_authors_path, class: "btn btn-secondary" %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>

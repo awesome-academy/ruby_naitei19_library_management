@@ -11,7 +11,7 @@ class Admin::PublishersController < Admin::BaseController
     @publisher = Publisher.new(publisher_params)
     if @publisher.save
       flash[:success] = t("admin.publisher.create_success")
-      redirect_to admin_publishers_path
+      redirect_to admin_publisher_path(@publisher)
     else
       flash[:warning] = t("admin.publisher.create_fail")
       render :new, status: :unprocessable_entity

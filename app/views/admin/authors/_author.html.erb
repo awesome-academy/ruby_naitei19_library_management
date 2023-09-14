@@ -1,18 +1,25 @@
 <tr>
   <td><%= author.name %></td>
   <td>
-    <% if author.avatar.present? %>
-      <%= image_tag author.avatar, alt: author.name, class: "book-image" %>
+    <% if author.avatar.attached? %>
+      <%= image_tag url_for(author.avatar), alt: author.name, class: "book-image" %>
+    <% else %>
+      <%= t("admin.author.no_avatar") %>
     <% end %>
   </td>
   <td><%= author.country %></td>
   <td><%= author.date_of_birth %></td>
   <td>
-    <%= link_to "#" do %>
+    <%= link_to admin_author_path(author) do %>
+      <i class="fas fa-eye "></i>
+    <% end %>
+    <span class="mx-2"></span>
+    <%= link_to edit_admin_author_path(author) do %>
       <i class="fas fa-edit"></i>
     <% end %>
     <span class="mx-2"></span>
-    <%= link_to "#", method: :delete, data: { confirm: t("admin.delete") } do %>
+    <%= link_to admin_author_path(author), data: { "turbo-method": :delete,
+                                           turbo_confirm: t("admin.delete") } do %>
       <i class="fas fa-trash"></i>
     <% end %>
   </td>

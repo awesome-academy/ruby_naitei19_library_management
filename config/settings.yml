@@ -20,3 +20,5 @@ validate:
   name:
     length:
       max: 50
+model:
+  image_type: <%= %w(image/jpeg image/gif image/png) %>
