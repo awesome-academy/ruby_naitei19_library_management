@@ -3,19 +3,21 @@ class SessionsController < ApplicationController
   def new; end
 
   def create
-    if @user&.authenticate(params[:session][:password])
-      # Log the user in and redirect to the user's show page.
-      reset_session
-      log_in @user
-      if @user.admin?
-        redirect_to admin_root_path
+    if @user&.authenticate(params.dig(:session, :password))
+      if @user.activated
+        reset_session
+        log_in @user
+        if @user.admin?
+          redirect_to admin_root_path
+        else
+          redirect_to @user
+        end
       else
-        redirect_to @user
+        flash[:warning] = t "account_not_activated"
+        redirect_to root_url
       end
     else
-      # Create an error message.
-      flash.now[:danger] = t("invalid_mess")
-      render :new, status: :unprocessable_entity
+      handle_failed_login
     end
   end
 
@@ -32,5 +34,12 @@ class SessionsController < ApplicationController
 
     flash[:danger] = t("session_danger")
     redirect_to action: :new, status: :unprocessable_entity
+  end
+
+  # Fix rubocop too high
+  def handle_failed_login
+    # Create an error message.
+    flash.now[:danger] = t("invalid_mess")
+    render :new, status: :unprocessable_entity
   end
 end

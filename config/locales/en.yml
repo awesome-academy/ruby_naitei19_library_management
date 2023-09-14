@@ -68,6 +68,11 @@ en:
   you_cannot: "You cannot edit"
   not_logged_in: "Not logged in"
   back_button: "Back"
+  activation: "Account activation"
+  active: "Activate"
+  please_check: "Please check your email to activate your account"
+  welcome_message: "Hi %{name}, Welcome to the Library App! Click on the link below to activate your account:"
+  account_not_activated: "Account not activated"
   book:
     name: "Name"
     authors: "Authors"
