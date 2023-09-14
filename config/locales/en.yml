@@ -97,6 +97,18 @@ en:
       author_not_found: "Author not found !"
       detail: "Details"
       edit_profile: "Edit profile"
+  publishers:
+    index:
+      total: "Total Publishers Number:"
+    show:
+      created_at: "Created At"
+      books: "Books"
+      about: "About"
+      email: "Email:"
+      address: "Address:"
+      books_info: "Books Info"
+      author_not_found: "Author not found !"
+      detail: "Details"
   admin:
     delete: "Are you sure"
     db: "Database"

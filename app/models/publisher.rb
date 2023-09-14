@@ -8,4 +8,13 @@ class Publisher < ApplicationRecord
   scope :filtered_by_name, lambda {|name|
     where("name LIKE ?", "%#{name}%") if name.present?
   }
+  scope :search_all, lambda {|query|
+    joins(:books).where(
+      "books.title LIKE :q OR publishers.email LIKE :q
+        OR publishers.address LIKE :q
+        OR publishers.name LIKE :q
+        ",
+      q: "%#{query}%"
+    )
+  }
 end
