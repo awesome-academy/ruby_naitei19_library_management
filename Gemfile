@@ -10,7 +10,7 @@ gem "bcrypt", "3.1.13"
 gem "bootstrap", "~> 5.1", ">= 5.1.3"
 gem "rails", "~> 7.0.5"
 gem "rails-i18n"
-
+gem "rondo_form", "~> 0.2.3"
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "sprockets-rails"
 

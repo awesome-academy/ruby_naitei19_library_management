@@ -11236,12 +11236,21 @@ body {
 }
 
 .form-group {
-  margin-bottom: 1rem; /* Sử dụng khoảng cách tùy ý, ví dụ: 1rem là một khoảng cách tiêu chuẩn */
+  margin-bottom: 1rem;
 }
 
 .book-image {
-  width: 150px;
-  height: 150px;
+  max-width: 300px; 
+  max-height: 200px;
+  width: auto;
+  height: auto;
+}
+
+
+.book-images {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
 }
 
 .search-box {
