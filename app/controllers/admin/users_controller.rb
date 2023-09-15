@@ -1,5 +1,5 @@
 class Admin::UsersController < Admin::BaseController
-  before_action :find_user, except: %i(index)
+  before_action :find_user, only: :active
 
   def index
     name = params[:user_search] || ""
@@ -8,7 +8,16 @@ class Admin::UsersController < Admin::BaseController
                            per_page: Settings.per_page)
   end
 
-  def active; end
+  def active
+    if @user && !@user.activated
+      @user.activate
+      flash[:success] = t "account_activated"
+    else
+      @user.inactivate
+      flash[:success] = t "account_inactivated"
+    end
+    redirect_to admin_users_path
+  end
 
   private
 
