@@ -29,7 +29,12 @@
          </h1>
          <div class="d-flex align-items-center">
             <div class="post-meta">
-               <p class="post-author-list"><strong><%= t("book.authors")%>:</strong> <%= book.authors.map(&:name).join(", ") %></p>
+               <p class="post-author-list"><strong><%= t("book.authors") %>:</strong>
+                  <% book.authors.each do |author| %>
+                     <%= link_to author.name, author %>
+                     <% if author != book.authors.last %>, <% end %>
+                  <% end %>
+               </p>
                <p class="post-publisher"><strong><%= t("book.publisher")%>:</strong><%= link_to book.publisher_name, book.publisher%></p>
                <p><strong><%= t("book.published_year")%>:</strong> <%= book.published_year %></p>
             </div>
@@ -40,6 +45,6 @@
 </div>
 <div class="d-flex justify-content-center align-items-center mt-5">
    <div class="digg_pagination">
-      <%= will_paginate @books%>
+      <%= will_paginate @books %>
    </div>
 </div>

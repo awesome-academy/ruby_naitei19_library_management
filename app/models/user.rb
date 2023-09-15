@@ -8,6 +8,11 @@ class User < ApplicationRecord
   has_many :transactions, dependent: :destroy
   has_many :user_like_books, dependent: :destroy
   has_many :books, through: :user_like_books
+  has_many :follows, dependent: :destroy
+  has_many :followed_publishers, through: :follows, source: :followable,
+            source_type: "publisher"
+  has_many :followed_authors, through: :follows, source: :followable,
+            source_type: "author"
 
   enum gender: {male: 0, female: 1}
   enum role: {normal_user: 0, admin: 1}
