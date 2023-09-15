@@ -94,8 +94,10 @@ en:
     search_button: "Search"
   authors:
     index:
-      total: "Total Authors Number:"
-      all: "All Authors List"
+      total: "Total Authors :"
+      followed: "Followed Authors :"
+      tab_all: "All Publisher"
+      tab_followed: "Followed"
     show:
       created_at: "Created At"
       books: "Books"
@@ -108,7 +110,10 @@ en:
       edit_profile: "Edit profile"
   publishers:
     index:
-      total: "Total Publishers Number:"
+      total: "Total Publishers :"
+      followed: "Followed Publishers :"
+      tab_all: "All Publisher"
+      tab_followed: "Followed"
     show:
       created_at: "Created At"
       books: "Books"
