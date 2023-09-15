@@ -136,6 +136,13 @@ en:
       email: "Email"
       button: "Create"
       edit: "Edit a user"
+      search_button: "Search"
+      gender: "Gender"
+      activate: "Activate"
+      inactivate: "Inactivate"
+      actions: "Actions"
+      search_placeholder: "Please enter the user's name you want to find"
+      not_found: "Not found uer!"
     book:
       new: "Create new book"
       description: "Description"

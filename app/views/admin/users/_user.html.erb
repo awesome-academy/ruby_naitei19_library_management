@@ -1,0 +1,12 @@
+<tr>
+  <td><%= user.name %></td>
+  <td><%= user.email %></td>
+  <td><%= user.gender %></td>
+  <td>
+  <% if user.activate%>
+      <%= link_to t("activate"), "#", class: "nav-link"%>
+  <% else %>
+      <%= link_to t("inactivate"), "#", class: "nav-link" %>
+  <% end %>
+  </td>
+</tr>

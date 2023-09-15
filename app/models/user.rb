@@ -25,12 +25,20 @@ class User < ApplicationRecord
   validates :password, presence: true,
                        length: {minimum: Settings.degit.length_6},
                        allow_nil: true
+  scope :filtered_by_name, lambda {|name|
+    where("name LIKE ?", "%#{name}%") if name.present?
+  }
 
   has_secure_password
 
   # Activates an account.
   def activate
     update_columns activated: true, activated_at: Time.zone.now
+  end
+
+  # Inactivates an account.
+  def inactivate
+    update_columns activated: false, activated_at: Time.zone.now
   end
 
   # Sends activation email.
