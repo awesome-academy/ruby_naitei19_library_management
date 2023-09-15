@@ -682,6 +682,15 @@ section {
   margin-bottom: 5px;
 }
 
+.blog .posts-list .post-publisher a{
+  color: var(--color-default);
+  transition: 0.3s;
+}
+
+.blog .posts-list .post-publisher a:hover{
+  color: var(--color-primary);
+}
+
 .blog .posts-list .post-date {
   font-size: 14px;
   color: #3c3c3c;

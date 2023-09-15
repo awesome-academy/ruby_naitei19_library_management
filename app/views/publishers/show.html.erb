@@ -1,0 +1,56 @@
+<section class="py-2">
+  <%= render "shared/back_button"%>
+  <div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col col-lg-9 col-xl-7">
+        <div class="card">
+          <div class="rounded-top text-white d-flex flex-row" style="background-color: #000; height:200px;">
+            <div class="ms-4 mt-5 d-flex flex-column" style="width: 150px;">
+              <img src= "https://robohash.org/sedexcepturifuga.png?size=300x300&set=set1"
+                alt="Generic placeholder image" class="img-fluid img-thumbnail mt-4 mb-2"
+                style="width: 150px; z-index: 1">
+            </div>
+            <div class="ms-3" style="margin-top: 130px;">
+              <h5><%= @publisher.name %></h5>
+            </div>
+          </div>
+          <div class="p-4 text-black" style="background-color: #f8f9fa;">
+            <div class="d-flex justify-content-end text-center py-1">
+              <div>
+                <p class="mb-1 h5"><%= formatted_datetime(@publisher.created_at)  %></p>
+                <p class="small text-muted mb-0"><%=t("publishers.show.created_at")%></p>
+              </div>
+              <div>
+                <p class="mb-1 h5"><%= @publisher.books.count %></p>
+                <p class="small text-muted mb-0"><%=t("publishers.show.books")%></p>
+              </div>
+            </div>
+          </div>
+          <div class="card-body p-4 text-black">
+            <div class="mb-5">
+              <p class="lead fw-normal mb-1"><%=t("publishers.show.about")%></p>
+              <div class="p-4" style="background-color: #f8f9fa;">
+                <p class="font-italic mb-1"><%= t("publishers.show.email")%> <%= @publisher.email %></p>
+                <p class="font-italic mb-0"><%= t("publishers.show.address")%> <%= @publisher.address %></p>
+              </div>
+            </div>
+            <div class="d-flex justify-content-between align-items-center mb-4">
+              <p class="lead fw-normal mb-0"><%= t("publishers.show.books_info")%></p>
+            </div>
+            <div class="row row-cols-3">
+              <% @publisher.books.map.each do |book| %>
+                <div class="col mt-3">
+                <img src= <%= book.images[0]&.image%>
+                  alt="image" class="w-100 rounded-3">
+                  <p>
+                    <%= link_to book.title, book%>
+                  </p>
+                </div>
+              <%end%>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -30,7 +30,7 @@
          <div class="d-flex align-items-center">
             <div class="post-meta">
                <p class="post-author-list"><strong><%= t("book.authors")%>:</strong> <%= book.authors.map(&:name).join(", ") %></p>
-               <p><strong><%= t("book.publisher")%>:</strong> <%= book.publisher_name %></p>
+               <p class="post-publisher"><strong><%= t("book.publisher")%>:</strong><%= link_to book.publisher_name, book.publisher%></p>
                <p><strong><%= t("book.published_year")%>:</strong> <%= book.published_year %></p>
             </div>
          </div>
