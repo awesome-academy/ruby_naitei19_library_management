@@ -73,6 +73,8 @@ en:
   please_check: "Please check your email to activate your account"
   welcome_message: "Hi %{name}, Welcome to the Library App! Click on the link below to activate your account:"
   account_not_activated: "Account not activated"
+  account_activated: "Account activated"
+  account_inactivated: "Account inactivated"
   follow: "Follow"
   wrong: "Something went wrong"
   follow_fail: "Fail to follow"

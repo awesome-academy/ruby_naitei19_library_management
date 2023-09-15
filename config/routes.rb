@@ -30,7 +30,11 @@ Rails.application.routes.draw do
       resources :authors
       resources :publishers
       resources :categories
-      resources :users
+      resources :users do
+        member do
+          post "active"
+        end
+      end
     end
 
     resources :books, only: :show do

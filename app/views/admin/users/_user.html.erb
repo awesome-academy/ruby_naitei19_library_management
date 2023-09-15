@@ -3,10 +3,10 @@
   <td><%= user.email %></td>
   <td><%= user.gender %></td>
   <td>
-  <% if user.activate%>
-      <%= link_to t("activate"), "#", class: "nav-link"%>
+  <% if user.activated%>
+      <%= link_to t("inactivate"), active_admin_user_path(user), data: { "turbo-method": :post}, class: "nav-link"%>
   <% else %>
-      <%= link_to t("inactivate"), "#", class: "nav-link" %>
+      <%= link_to t("activate"), active_admin_user_path(user), data: { "turbo-method": :post}, class: "nav-link" %>
   <% end %>
   </td>
 </tr>
