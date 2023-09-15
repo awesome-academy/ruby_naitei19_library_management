@@ -5,7 +5,7 @@
         <h1 class="mt-4"><%= t("admin.header.book")%></h1>
         <div class="card mb-4">
           <div class="card-body text-center ">
-            <%= link_to t("admin.book.new"), "#", class: "btn btn-primary" %>
+            <%= link_to t("admin.book.new"),new_admin_book_path , class: "btn btn-primary" %>
           </div>
         </div>
         <div class="card mb-4">
@@ -14,12 +14,17 @@
               <%= t("admin.header.book")%> <%= t("admin.db") %>
           </div>
           <div class="card-body">
-            <table id="datatablesSimple">
-              <thead>
+            <div class="search-box">
+              <%= form_tag admin_books_path, method: :get do %>
+                <%= text_field_tag :book_search, params[:book_search], placeholder: t("admin.book.search_placeholder"), class: "form-control" %>
+                <%= submit_tag t("admin.book.search_button"), class: "btn btn-primary" %>
+              <% end %>
+            </div>
+            <table class="table table-bordered">
+              <thead >
                 <tr>
                   <th><%= t("admin.book.title") %></th>
                   <th><%= t("admin.book.image") %></th>
-                  <th><%= t("admin.book.description") %></th>
                   <th><%= t("admin.book.category") %></th>
                   <th><%= t("admin.book.published_year") %></th>
                   <th><%= t("admin.book.book_amount") %></th>
@@ -33,6 +38,11 @@
                 <%= render partial: "book", collection: @books %>
               </tbody>
             </table>
+          </div>
+          <div class="d-flex justify-content-center align-items-center mt-5">
+            <div class="digg_pagination">
+                <%= will_paginate @books%>
+            </div>
           </div>
         </div>
     </div>

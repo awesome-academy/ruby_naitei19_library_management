@@ -12,3 +12,5 @@ eagerLoadControllersFrom("controllers", application)
 // app/javascript/controllers/index.js
 import ConfirmationController from "./confirmation_controller"
 application.register("confirmation", ConfirmationController)
+import NestedRondoController from "./nested_rondo_controller"
+application.register("nested-rondo", NestedRondoController)

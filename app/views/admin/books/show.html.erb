@@ -1,0 +1,79 @@
+<% provide(:title, t("admin.book.details")) %>
+<div id="layoutSidenav_content">
+  <main>
+    <div class="container-fluid px-4">
+      <h1 class="mt-4"><%= t("admin.book.details") %></h1>
+
+      <div class="card mb-4">
+        <div class="card-body">
+          <h2><%= t("admin.book.info") %></h2>
+
+          <dl class="row">
+            <dt class="col-sm-3"><%= t("admin.book.title") %>:</dt>
+            <dd class="col-sm-9"><%= @book.title %></dd>
+
+            <dt class="col-sm-3"><%= t("admin.book.description") %>:</dt>
+            <dd class="col-sm-9"><%= @book.description %></dd>
+
+            <dt class="col-sm-3"><%= t("admin.book.average_rating") %>:</dt>
+            <dd class="col-sm-9">
+              <% if @book.average_rating.zero? %>
+                <%= t("admin.book.no_review") %>
+              <% else %>
+                <%= @book.average_rating %>
+              <% end %>
+            </dd>
+
+            <dt class="col-sm-3"><%= t("admin.book.publisher") %>:</dt>
+            <dd class="col-sm-9"><%= @book.publisher_name %></dd>
+
+            <dt class="col-sm-3"><%= t("admin.book.book_amount") %>:</dt>
+            <dd class="col-sm-9"><%= @book.book_amount %></dd>
+
+            <dt class="col-sm-3"><%= t("admin.book.published_year") %>:</dt>
+            <dd class="col-sm-9"><%= @book.published_year %></dd>
+
+            <dt class="col-sm-3"><%= t("admin.book.images") %>:</dt>
+            <dd class="col-sm-9">
+              <% if @book.images.any? %>
+                <ul class="book-images">
+                  <% @book.images.each do |image| %>
+                    <li>
+                      <%= image_tag url_for(image.image), alt: @book.title, class: "book-image" %>
+                    </li>
+                  <% end %>
+                </ul>
+              <% else %>
+                <%= t("admin.book.no_image") %>
+              <% end %>
+            </dd>
+
+
+            <dt class="col-sm-3"><%= t("admin.book.categories") %>:</dt>
+            <dd class="col-sm-9">
+              <ul>
+                <% @book.categories.each do |category| %>
+                  <li><%= category.category_name %></li>
+                <% end %>
+              </ul>
+            </dd>
+
+
+            <dt class="col-sm-3"><%= t("admin.book.author") %>:</dt>
+            <dd class="col-sm-9">
+              <ul>
+                <% @book.authors.each do |author| %>
+                  <li><%= author.name %></li>
+                <% end %>
+              </ul>
+            </dd>
+
+          </dl>
+
+          <%= link_to t("admin.book.edit"), edit_admin_book_path(@book), class: "btn btn-primary" %>
+          <%= link_to t("admin.book.back"), admin_books_path, class: "btn btn-secondary" %>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>

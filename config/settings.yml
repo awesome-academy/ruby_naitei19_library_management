@@ -22,3 +22,9 @@ validate:
       max: 50
 model:
   image_type: <%= %w(image/jpeg image/gif image/png) %>
+book:
+  title_max: 50
+  year: 1
+  amount: 1
+  rate_min: 0
+  rate_max: 5
