@@ -1,26 +1,46 @@
-<div class="d-flex justify-content-center align-items-center mt-4">
-  <%= form_with url: publishers_path, method: "get", class: "form-inline" do |form| %>
-    <div class="input-group">
-      <%= form.text_field :search, id: "form1", class: "form-control-lg", placeholder: "Search" %>
-        <%= button_tag(type: "submit", class: "btn btn-primary") do %>
-          <i class="bi bi-search"></i>
-        <% end %>
-    </div>
-  <% end %>
-</div>
-<div class="container">
-    <div class="row">
-        <div class="col-lg-10 mx-auto">
-            <div class="career-search mb-60">
-                <div class="filter-result">
-                    <h2 class="mb-30 ff-montserrat">
-                       <%= t("publishers.index.total")%> <%=@publishers.count%>
-                    </h2>
-                    <%= will_paginate renderer: WillPaginate::ActionView::BootstrapLinkRenderer %>
-                    <%= render @publishers %>
-                    <%= will_paginate %>
+<ul class="nav nav-tabs" id="myTab" role="tablist">
+  <li class="nav-item" role="presentation">
+    <button class="nav-link active" id="all-tab" data-bs-toggle="tab" data-bs-target="#all" type="button" role="tab" aria-controls="all" aria-selected="true"><%= t("publishers.index.tab_all") %></button>
+  </li>
+  <li class="nav-item" role="presentation">
+    <button class="nav-link" id="followed-tab" data-bs-toggle="tab" data-bs-target="#followed" type="button" role="tab" aria-controls="followed" aria-selected="false"><%= t("publishers.index.tab_followed") %></button>
+  </li>
+</ul>
+<div class="tab-content" id="myTabContent">
+  <div class="tab-pane fade show active" id="all" role="tabpanel" aria-labelledby="all-tab">
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-lg-10 mx-auto">
+                <div class="career-search mb-60">
+                    <div class="filter-result">
+                      <h2 class="mb-30 ff-montserrat">
+                      <%= t("publishers.index.total")%> <%=@publishers.count%>
+                      </h2>
+                      <%= will_paginate renderer: WillPaginate::ActionView::BootstrapLinkRenderer %>
+                      <%= render @publishers %>
+                      <%= will_paginate %>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+  </div>
+  <div class="tab-pane fade" id="followed" role="tabpanel" aria-labelledby="followed-tab">
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-lg-10 mx-auto">
+                <div class="career-search mb-60">
+                    <div class="filter-result">
+                      <h2 class="mb-30 ff-montserrat">
+                      <%= t("publishers.index.followed") %><%= current_user.followed_publishers.count %>
+                      </h2>
+                      <%= will_paginate renderer: WillPaginate::ActionView::BootstrapLinkRenderer %>
+                      <%= render current_user.followed_publishers %>
+                      <%= will_paginate %>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
 </div>
