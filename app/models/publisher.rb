@@ -1,5 +1,7 @@
 class Publisher < ApplicationRecord
   has_many :books, dependent: :nullify
+  has_many :follows, as: :followable, dependent: :destroy
+  has_many :followers, through: :follows, source: :user
   validates :name, presence: true, length: {maximum: Settings.category.max}
   validates :address, presence: true
   validates :email, presence: true, uniqueness: true,

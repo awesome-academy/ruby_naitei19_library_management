@@ -73,6 +73,10 @@ en:
   please_check: "Please check your email to activate your account"
   welcome_message: "Hi %{name}, Welcome to the Library App! Click on the link below to activate your account:"
   account_not_activated: "Account not activated"
+  follow: "Follow"
+  wrong: "Something went wrong"
+  follow_fail: "Fail to follow"
+  unfollow: "Unfollow"
   book:
     name: "Name"
     authors: "Authors"
@@ -114,6 +118,7 @@ en:
       books_info: "Books Info"
       author_not_found: "Author not found !"
       detail: "Details"
+      follower: "Follower"
   admin:
     delete: "Are you sure"
     db: "Database"

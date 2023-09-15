@@ -36,9 +36,12 @@ Rails.application.routes.draw do
       resources :transactions
     end
 
-    resources :authors
+    resources :authors do
+      resources :follows, only: %i(create destroy)
+    end
 
-    resources :publishers, only: %i(show index)
-
+    resources :publishers, only: %i(show index) do
+      resources :follows, only: %i(create destroy)
+    end
   end
 end

@@ -9,6 +9,9 @@
               <img src= "https://robohash.org/sedexcepturifuga.png?size=300x300&set=set1"
                 alt="Generic placeholder image" class="img-fluid img-thumbnail mt-4 mb-2"
                 style="width: 150px; z-index: 1">
+                <div style="z-index: 1;" class="d-flex justify-content-center" >
+                  <%= render "form_follow" %>
+                </div>
             </div>
             <div class="ms-3" style="margin-top: 130px;">
               <h5><%= @publisher.name %></h5>
@@ -17,12 +20,12 @@
           <div class="p-4 text-black" style="background-color: #f8f9fa;">
             <div class="d-flex justify-content-end text-center py-1">
               <div>
-                <p class="mb-1 h5"><%= formatted_datetime(@publisher.created_at)  %></p>
-                <p class="small text-muted mb-0"><%=t("publishers.show.created_at")%></p>
+                <p class="mb-1 h5 mx-5"><%= @publisher.follows.count %></p>
+                <p class="small text-muted mb-0"><%= t("publishers.show.follower") %></p>
               </div>
               <div>
                 <p class="mb-1 h5"><%= @publisher.books.count %></p>
-                <p class="small text-muted mb-0"><%=t("publishers.show.books")%></p>
+                <p class="small text-muted mb-0"><%= t("publishers.show.books") %></p>
               </div>
             </div>
           </div>
@@ -40,10 +43,10 @@
             <div class="row row-cols-3">
               <% @publisher.books.map.each do |book| %>
                 <div class="col mt-3">
-                <img src= <%= book.images[0]&.image%>
+                <img src= <%= book.images[0]&.image %>
                   alt="image" class="w-100 rounded-3">
                   <p>
-                    <%= link_to book.title, book%>
+                    <%= link_to book.title, book %>
                   </p>
                 </div>
               <%end%>

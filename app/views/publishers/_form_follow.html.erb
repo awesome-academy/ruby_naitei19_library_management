@@ -1,0 +1,13 @@
+<% if followed? %>
+  <%= link_to publisher_follow_path(@publisher.id,followed.id), data: { "turbo-method": :delete}, class: "btn-lg top-0 end-0" do %>
+    <button type="button" class="btn btn-outline-danger" data-mdb-ripple-color="white" >
+      <%= t("unfollow") %>
+    </button>
+  <% end %>
+<% else %>
+  <%= link_to publisher_follows_path(@publisher), data: { "turbo-method": :post}, class: "btn-lg top-0 end-0" do %>
+    <button type="button" class="btn btn-outline-dark" data-mdb-ripple-color="white">
+      <%= t("follow") %>
+    </button>
+  <% end %>
+<% end %>
