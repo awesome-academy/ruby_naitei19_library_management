@@ -2,7 +2,7 @@ class TransactionsController < ApplicationController
   before_action :logged_in_user
   before_action :find_book, only: %i(new create)
   before_action :find_user, only: %i(index destroy)
-  # before_action :find_transaction, only: [:show, :edit, :update, :destroy]
+  before_action :find_transaction, only: %i(destroy)
 
   def index
     @transactions = @user.transactions
@@ -27,7 +27,13 @@ class TransactionsController < ApplicationController
     end
   end
 
-  def destroy; end
+  def destroy
+    @transaction.destroy
+    respond_to do |format|
+      flash[:success] = t("transactions.destroy")
+      format.html{redirect_to user_transactions_url(@user)}
+    end
+  end
 
   private
 
@@ -62,7 +68,7 @@ class TransactionsController < ApplicationController
   end
 
   def find_transaction
-    @transaction = @book.transactions.find_by(id: params[:id])
+    @transaction = Transaction.find_by(id: params[:id])
     return if @transaction
 
     flash[:danger] = t("book.wrong")
