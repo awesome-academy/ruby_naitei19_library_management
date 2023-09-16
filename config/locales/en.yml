@@ -303,3 +303,7 @@ en:
     you: "You and "
     only_you: "Only you like this book"
     people: " people like the book"
+  expire:
+    desc: "Start the Expire Date Checker"
+    title: "Expire Date Checker started. Press Ctrl+C to stop."
+    int: "INT"
