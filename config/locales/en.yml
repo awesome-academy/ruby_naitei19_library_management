@@ -53,6 +53,7 @@ en:
   setting: "Settings"
   log_out: "Log out"
   favorites: "Favorites"
+  transactions_history: "Transactions History"
   user_created: "User created successful"
   name: "Name"
   email: "Email address"
@@ -245,6 +246,7 @@ en:
         expire_date: "Expired Date"
         status: "Status"
         books_amount: "Book Amount"
+        day_made: "Day Made"
         actions: "Actions"
       select:
         pending: "pending"
@@ -256,6 +258,7 @@ en:
       actions:
         accepted: "The transactions is accepted"
         denied: "The transactions is denied"
+        cancel: "Cancel"
   review:
     add_success: "Review has been created"
     add_fail: "Something went wrong"
