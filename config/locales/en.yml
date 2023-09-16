@@ -307,3 +307,6 @@ en:
     desc: "Start the Expire Date Checker"
     title: "Expire Date Checker started. Press Ctrl+C to stop."
     int: "INT"
+  mail:
+    accepted: "The transaction is accepted!!!"
+    denied: "The transaction is denied!!!"

@@ -37,7 +37,15 @@ class Admin::TransactionsController < Admin::BaseController
     if @transaction.fail?
       new_book_amount = @transaction.amount.to_i + @transaction.book.book_amount
       @transaction.book.update_column(:book_amount, new_book_amount)
+      TransactionMailer.deny_email(@transaction.user).deliver_now
+    else
+      TransactionMailer.accept_email(@transaction.user).deliver_now
     end
+
+    redirect_when_success
+  end
+
+  def redirect_when_success
     flash[:success] =
       if @transaction.success?
         t("admin.transaction.actions.accepted")
