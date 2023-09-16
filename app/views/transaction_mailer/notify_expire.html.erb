@@ -1,0 +1,27 @@
+<h1><%=t("mail.expire")%></h1>
+<table>
+  <thead >
+    <tr>
+      <th><%=t("admin.transaction.table.id")%></th>
+      <th><%=t("admin.transaction.table.username")%></th>
+      <th><%=t("admin.transaction.table.book_title")%></th>
+      <th><%=t("admin.transaction.table.requests_date")%></th>
+      <th><%=t("admin.transaction.table.expire_date")%></th>
+      <th><%=t("admin.transaction.table.status")%></th>
+      <th><%=t("admin.transaction.table.books_amount")%></th>
+      <th><%=t("admin.transaction.table.day_made")%></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><%= @transaction.id %></td>
+      <td><%= @transaction.user_name %></td>
+      <td><%= @transaction.book_title %></td>
+      <td><%= @transaction.borrow_date %></td>
+      <td><%= @transaction.expire_date %></td>
+      <td><%= @transaction.status %></td>
+      <td><%= @transaction.amount %></td>
+      <td><%= @transaction.updated_at %></td>
+    </tr>
+  </tbody>
+</table>

@@ -322,3 +322,4 @@ en:
   mail:
     accepted: "The transaction is accepted!!!"
     denied: "The transaction is denied!!!"
+    expire: "Your transaction is 1 day remaining to become expire !!!"
