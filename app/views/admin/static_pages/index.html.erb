@@ -1,2 +1,60 @@
-<% provide(:title, t("admin_site")) %>
-<p><%= t("admin_site") %></p>
+<% provide(:title, t("admin.header.dashboard")) %>
+<div id="layoutSidenav_content">
+  <main>
+    <div class="container-fluid px-4">
+        <h1 class="mt-4"><%= t("admin.header.dashboard")%></h1>
+        <div class="row">
+            <div class="col-xl-3 col-md-6">
+                <div class="card bg-primary text-white mb-4">
+                    <div class="card-body"><%= t("admin.header.user") %></div>
+                    <div class="card-footer d-flex align-items-center justify-content-between">
+                        <div class="small text-white " ><%= @user_count %> </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-md-6">
+                <div class="card bg-warning text-white mb-4">
+                    <div class="card-body"><%= t("admin.header.book") %></div>
+                    <div class="card-footer d-flex align-items-center justify-content-between">
+                      <div class="small text-white " ><%= @book_count %> </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-md-6">
+                <div class="card bg-success text-white mb-4">
+                    <div class="card-body"><%= t("admin.header.author") %></div>
+                    <div class="card-footer d-flex align-items-center justify-content-between">
+                      <div class="small text-white " ><%= @author_count %> </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-md-6">
+                <div class="card bg-danger text-white mb-4">
+                    <div class="card-body"><%= t("admin.header.publisher") %></div>
+                    <div class="card-footer d-flex align-items-center justify-content-between">
+                      <div class="small text-white " ><%= @publisher_count %></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xl-3 col-md-6">
+                <div class="card bg-primary text-white mb-4">
+                    <div class="card-body"><%= t("admin.header.cagetory") %></div>
+                    <div class="card-footer d-flex align-items-center justify-content-between">
+                      <div class="small text-white " ><%= @category_count %></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-md-6">
+                <div class="card bg-warning text-white mb-4">
+                    <div class="card-body"><%= t("admin.header.transaction") %></div>
+                    <div class="card-footer d-flex align-items-center justify-content-between">
+                      <div class="small text-white " ><%= @transaction_count %></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  </main>
+</div>
