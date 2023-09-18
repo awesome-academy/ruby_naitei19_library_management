@@ -139,6 +139,7 @@ en:
       category: "Category"
       logout: "Log out"
       transaction: "Transaction"
+      dashboard: "Dashboard"
     user:
       new: "Create new user"
       name: "Name"
