@@ -1,6 +1,18 @@
 class TransactionsController < ApplicationController
-  before_action :logged_in_user, :find_book
+  before_action :logged_in_user
+  before_action :find_book, only: %i(new create)
+  before_action :find_user, only: %i(index destroy)
   # before_action :find_transaction, only: [:show, :edit, :update, :destroy]
+
+  def index
+    @transactions = @user.transactions
+                         .filter_by_status(params[:transaction_status])
+                         .order(updated_at: :desc)
+                         .paginate(
+                           page: params[:page],
+                           per_page: Settings.authors.per_page
+                         )
+  end
 
   def new
     @transaction = Transaction.new
@@ -15,11 +27,21 @@ class TransactionsController < ApplicationController
     end
   end
 
+  def destroy; end
+
   private
 
   def find_book
     @book = Book.find_by(id: params[:book_id])
     return if @book
+
+    flash[:danger] = t("book.wrong")
+    redirect_to root_path
+  end
+
+  def find_user
+    @user = User.find_by(id: params[:user_id])
+    return if @user
 
     flash[:danger] = t("book.wrong")
     redirect_to root_path

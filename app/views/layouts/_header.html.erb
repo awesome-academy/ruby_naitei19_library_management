@@ -18,6 +18,10 @@
                <%= link_to t("admin.page"), admin_static_pages_path, class: "nav-link"%>
             </li>
          <% end %>
+            <% end %>
+         <li>
+            <%= link_to t("transactions_history"),user_transactions_path(current_user), class: "nav-link"%>
+         </li>
          <li class="dropdown">
             <a href="#"><span><%= t("profile")%></span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
             <ul>

@@ -17,6 +17,7 @@ Rails.application.routes.draw do
 
     resources :users do
       resources :like_books, only: :index
+      resources :transactions, only: %i(index show destroy)
     end
 
     resources :books do
@@ -40,10 +41,6 @@ Rails.application.routes.draw do
           post "active"
         end
       end
-      resources :transactions
-    end
-
-    resources :books, only: :show do
       resources :transactions
     end
 

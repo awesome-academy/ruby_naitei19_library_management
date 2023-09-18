@@ -2,7 +2,8 @@ class Admin::TransactionsController < Admin::BaseController
   before_action :find_transaction, only: %i(update)
 
   def index
-    @transactions = Transaction.filter_by_status(params[:transaction_status])
+    @transactions = Transaction.order(updated_at: :desc)
+                               .filter_by_status(params[:transaction_status])
                                .paginate(
                                  page: params[:page],
                                  per_page: Settings.authors.per_page
