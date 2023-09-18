@@ -13,6 +13,11 @@
          <li>
             <%= link_to t("favorites"),user_like_books_path(current_user), class: "nav-link"%>
          </li>
+         <% if current_user.admin? %> 
+            <li>
+               <%= link_to t("admin.page"), admin_static_pages_path, class: "nav-link"%>
+            </li>
+            <% end %>
          <li class="dropdown">
             <a href="#"><span><%= t("profile")%></span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
             <ul>
