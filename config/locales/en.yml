@@ -135,6 +135,7 @@ en:
       author: "Author"
       publisher: "Publisher"
       category: "Category"
+      transaction: "Transaction"
     user:
       new: "Create new user"
       name: "Name"
@@ -226,6 +227,26 @@ en:
       destroy_fail: "Failed to destroy category"
       details: "Category Details"
       not_found: "Not found category!"
+    transaction:
+      table:
+        id: "ID"
+        username: "Username"
+        book_title: "Book Title"
+        requests_date: "Request Date"
+        expire_date: "Expired Date"
+        status: "Status"
+        books_amount: "Book Amount"
+        actions: "Actions"
+      select:
+        pending: "pending"
+        success: "success"
+        fail: "fail"
+        expire: "expire"
+        accept: "Accept"
+        deny: "Deny"
+      actions:
+        accepted: "The transactions is accepted"
+        denied: "The transactions is denied"
   review:
     add_success: "Review has been created"
     add_fail: "Something went wrong"

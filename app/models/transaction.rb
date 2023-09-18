@@ -10,6 +10,11 @@ class Transaction < ApplicationRecord
 
   after_save :update_book_amount
 
+  scope :filter_by_status, ->(status){where(status:)}
+
+  delegate :name, to: :user, prefix: true
+  delegate :title, to: :book, prefix: true
+
   private
 
   def borrow_date_must_be_before_expire_date
