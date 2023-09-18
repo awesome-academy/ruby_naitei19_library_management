@@ -79,6 +79,7 @@ en:
   wrong: "Something went wrong"
   follow_fail: "Fail to follow"
   unfollow: "Unfollow"
+  not_admin: "You do not have permission to access this page."
   book:
     name: "Name"
     authors: "Authors"
@@ -129,12 +130,14 @@ en:
   admin:
     delete: "Are you sure"
     db: "Database"
+    page: "Admin Page"
     header:
       user: "User"
       book: "Book"
       author: "Author"
       publisher: "Publisher"
       category: "Category"
+      logout: "Log out"
       transaction: "Transaction"
     user:
       new: "Create new user"
