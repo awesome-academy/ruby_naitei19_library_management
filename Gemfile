@@ -17,6 +17,8 @@ gem "sprockets-rails"
 # Use mysql as the database for Active Record
 gem "mysql2", "~> 0.5"
 
+gem "axlsx_rails"
+
 gem "faker"
 
 gem "bootstrap-icons-helper"
