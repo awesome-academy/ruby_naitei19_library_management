@@ -1,0 +1,10 @@
+wb = xlsx_package.workbook
+  wb.add_worksheet(name: "Books") do |sheet|
+    sheet.add_row [t("admin.book.title"), t("admin.book.description"), t("admin.book.authors"), t("admin.book.publisher_id"),
+                   t("admin.book.book_amount"),  t("admin.book.published_year"),t("admin.book.categories"),t("admin.book.average_rating")]
+
+    @books.each do |book|
+      sheet.add_row [book.title, book.description,book.authors.pluck(:name).join(", "),
+      book.publisher_name,book.book_amount,  book.published_year, book.categories.pluck(:category_name).join(", "), book.average_rating.round(1)]
+    end
+  end

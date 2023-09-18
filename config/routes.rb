@@ -27,7 +27,11 @@ Rails.application.routes.draw do
     namespace :admin do
       root to: "static_pages#index"
       resources :static_pages
-      resources :books
+      resources :books do
+        collection do
+          get :export_excel
+        end
+      end
       resources :authors
       resources :publishers
       resources :categories

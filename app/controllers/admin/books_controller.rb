@@ -1,10 +1,20 @@
 class Admin::BooksController < Admin::BaseController
-  before_action :find_book, except: %i(index new create)
+  before_action :find_book, except: %i(index new create export_excel)
+  before_action :set_books, only: [:index]
   def index
-    name = params[:book_search] || ""
-    @books = Book.filtered_by_name(name).paginate(page: params[:page],
-                                                  per_page:
-                                                  Settings.per_page)
+    @books = @books.paginate(page: params[:page],
+                             per_page: Settings.page.limit_items)
+  end
+
+  def export_excel
+    search = session[:search] || ""
+    @books = Book.search_all(search).distinct
+    respond_to do |format|
+      format.xlsx do
+        response.headers["Content-Disposition"] =
+          %(attachment; filename="books_#{search}.xlsx")
+      end
+    end
   end
 
   def create
@@ -61,5 +71,10 @@ class Admin::BooksController < Admin::BaseController
 
     flash[:danger] = t("admin.book.not_found")
     redirect_to admin_books_path
+  end
+
+  def set_books
+    @books = Book.search_all(params[:search] || "").distinct
+    session[:search] = params[:search]
   end
 end

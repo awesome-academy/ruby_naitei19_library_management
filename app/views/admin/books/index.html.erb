@@ -1,3 +1,14 @@
+<div class="d-flex justify-content-center align-items-center mt-4">
+  <%= form_with url: admin_books_path, method: "get", class: "form-inline" do |form| %>
+    <div class="input-group">
+      <%= form.text_field :search, id: "form1", class: "form-control-lg", placeholder: "Search" %>
+        <%= button_tag(type: "submit", class: "btn btn-primary") do %>
+          <i class="bi bi-search"></i>
+        <% end %>
+    </div>
+  <% end %>
+</div>
+<%= link_to t("admin.book.export"), export_excel_admin_books_path(format: :xlsx), class: "btn btn-primary" %>
 <% provide(:title, t("admin.header.book")) %>
 <div id="layoutSidenav_content">
   <main>

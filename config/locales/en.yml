@@ -154,8 +154,12 @@ en:
     book:
       new: "Create new book"
       description: "Description"
+      title: "Title"
+      authors: "Authors"
+      publisher: "Publisher"
       published_year: "Published year"
       book_amount: "Book amount"
+      categories: "Categories"
       publisher_id: "Publisher"
       average_rating: "Average rating"
       button: "Create"
@@ -176,6 +180,7 @@ en:
       search_placeholder: "Please enter the book's name you want to find"
       search_button: "Search"
       select: "must be selected"
+      export: "Export to Excel"
     author:
       new: "Create new author"
       country: "Country"
