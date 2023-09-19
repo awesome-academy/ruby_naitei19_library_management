@@ -1,17 +1,20 @@
 <header id="header" class="header d-flex align-items-center">
    <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
-      <h3><%= link_to t("title"), "#" , class: "navbar-brand px-5"%></h3>
+      <h3><%= link_to t("title"), root_path , class: "navbar-brand px-5"%></h3>
       <nav id="navbar" class="navbar">
          <ul>
-         <li>
-            <%= link_to t("home"), root_path, class: "nav-link" %>
-         </li>
-         <li>
-            <%= link_to t("books"), "#", class: "nav-link" %>
-         </li>
          <% if logged_in? %>
          <li>
+            <%= link_to t("books"), books_path, class: "nav-link" %>
+         </li>
+         <li>
             <%= link_to t("favorites"),user_like_books_path(current_user), class: "nav-link"%>
+         </li>
+         <li>
+            <%= link_to t("authors_hd"),authors_path, class: "nav-link"%>
+         </li>
+         <li>
+            <%= link_to t("publishers_hd"),publishers_path, class: "nav-link"%>
          </li>
          <% if current_user.admin? %>
             <li>
