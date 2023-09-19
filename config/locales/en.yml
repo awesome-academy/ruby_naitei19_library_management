@@ -81,6 +81,7 @@ en:
   follow_fail: "Fail to follow"
   unfollow: "Unfollow"
   not_admin: "You do not have permission to access this page."
+  login_successfull: "Login successfull, Hello %{name}"
   book:
     name: "Name"
     authors: "Authors"
