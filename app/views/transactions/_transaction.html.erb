@@ -9,9 +9,7 @@
   <td><%= transaction.updated_at %></td>
   <td>
   <% if transaction.pending? %>
-    <%= form_with model: transaction, url: user_transaction_path(@user, transaction), method: :destroy do |form| %>
-      <%= form.button t("admin.transaction.select.cancel"), class: "btn btn-danger" %>
-    <% end %>
+    <%= link_to t("admin.transaction.select.cancel"), user_transaction_path(@user, transaction), data: { "turbo-method": :delete}, class: "btn btn-danger", remote: true %>
   <% end %>
   </td>
 </tr>

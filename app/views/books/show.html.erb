@@ -37,6 +37,7 @@
                <%= @book.average_rating.round(1) %>
                <i class="fa fa-star rating-color mb-1"></i>
             </div>
+            <%= link_to t("book.borrow"), new_book_transaction_path(book_id: @book.id), class: "btn btn-primary" %>
          </div>
       </div>
    </div>

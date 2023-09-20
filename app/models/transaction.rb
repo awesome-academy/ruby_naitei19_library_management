@@ -9,6 +9,7 @@ class Transaction < ApplicationRecord
   validate :borrow_date_must_be_before_expire_date
 
   after_save :update_book_amount
+  before_destroy :recalculate_book_amount
 
   scope :filter_by_status, ->(status){where(status:)}
 
@@ -26,7 +27,12 @@ class Transaction < ApplicationRecord
   end
 
   def update_book_amount
-    remaining_books = book.book_amount.to_i - amount
+    remaining_books = book.book_amount.to_i - amount.to_i
     book.update_attribute(:book_amount, remaining_books)
+  end
+
+  def recalculate_book_amount
+    new_book_amount = amount.to_i + book.book_amount.to_i
+    book.update_column(:book_amount, new_book_amount)
   end
 end
