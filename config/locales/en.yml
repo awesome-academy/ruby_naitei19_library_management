@@ -53,6 +53,8 @@ en:
   setting: "Settings"
   log_out: "Log out"
   favorites: "Favorites"
+  authors_hd: "Authors"
+  publishers_hd: "Publishers"
   transactions_history: "Transactions History"
   user_created: "User created successful"
   name: "Name"
@@ -82,6 +84,9 @@ en:
   unfollow: "Unfollow"
   not_admin: "You do not have permission to access this page."
   login_successfull: "Login successfull, Hello %{name}"
+  all_books: "All books"
+  following: "Following books"
+  favorite_books: "Favorite books"
   book:
     name: "Name"
     authors: "Authors"

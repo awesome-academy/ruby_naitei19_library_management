@@ -1,11 +1,6 @@
-<% if logged_in? %>
-  <h3><%= t("following")%></h3>
-<%else%>
-  <h3><%= t("all_books")%></h3>
-<%end%>
-
+<h3><%= t("all_books")%></h3>
 <div class="d-flex justify-content-center align-items-center mt-4">
-  <%= form_with url: static_pages_index_path, method: "get", class: "form-inline" do |form| %>
+  <%= form_with url: books_path, method: "get", class: "form-inline" do |form| %>
     <div class="input-group">
       <%= form.text_field :search, id: "form1", class: "form-control-lg", placeholder: "Search" %>
         <%= button_tag(type: "submit", class: "btn btn-primary") do %>
