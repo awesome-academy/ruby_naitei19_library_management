@@ -1,24 +1,7 @@
 <div >
    <%= render "shared/back_button"%>
    <div class="container pb-5" >
-      <h1><%= @book.title %></h1>
-      <div id="carouselExampleControls" class="carousel slide card-img-top top-0 start-50 translate-middle-x" data-bs-ride="carousel">
-         <div class="carousel-inner " >
-            <% @book.images.each_with_index do |image, index| %>
-            <div class="carousel-item  <%= 'active' if index.zero? %> ">
-               <img class="d-block w-100 img-content"  src="<%= image.image %>" alt="Image <%= index + 1 %>">
-            </div>
-            <% end %>
-         </div>
-         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-         <span class="visually-hidden"></span>
-         </button>
-         <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
-         <span class="carousel-control-next-icon" aria-hidden="true"></span>
-         <span class="visually-hidden"></span>
-         </button>
-      </div>
+      <h1 class="margin-bottom-title"><%= @book.title %></h1>
       <div class="row">
          <div class="col-md-6">
             <p><strong><%= t("book.authors")%>:</strong> <%= @book.authors.pluck(:name).join(", ") %></p>
@@ -27,16 +10,39 @@
             <p><strong><%= t("book.description")%>:</strong> <%= @book.description %></p>
             <p><strong><%= t("book.amount")%>:</strong> <%= @book.book_amount %></p>
             <p><strong><%= t("book.categories")%>:</strong> <%= @book.categories.pluck(:category_name).join(", ") %></p>
-         </div>
-         <div class="col-md-6 d-flex align-items-start flex-column bd-highlight">
-            <div class ="mb-auto p-2 bd-highlight">
-               <%= render "like_books/like_form" if current_user.present? %>
-            </div>
             <div class="p-2 bd-highlight">
                <strong><%= t("book.rate")%>: </strong>
                <%= @book.average_rating.round(1) %>
                <i class="fa fa-star rating-color mb-1"></i>
             </div>
+         </div>
+         <div class="col-md-6 d-flex align-items-start flex-column bd-highlight">
+            <div id="carouselExampleControls" class="carousel slide card-img-top top-0 start-50 translate-middle-x" data-bs-ride="carousel">
+               <div class="carousel-inner " >
+                  <% @book.images.each_with_index do |image, index| %>
+                     <div class="carousel-item  <%= 'active' if index.zero? %> ">
+                        <%= image_tag url_for(image.image), alt: "Image #{index + 1}", class: "d-block w-100 img-content book-image" %>
+                     </div>
+                  <% end %>
+               </div>
+               <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+               <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+               <span class="visually-hidden"></span>
+               </button>
+               <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+               <span class="carousel-control-next-icon" aria-hidden="true"></span>
+               <span class="visually-hidden"></span>
+               </button>
+            </div>
+         </div>
+      </div>
+      <div class="row">
+         <div class="col-md-6">
+            <div class ="mb-auto p-2 bd-highlight">
+               <%= render "like_books/like_form" if current_user.present? %>
+            </div>
+         </div>
+         <div class="col-md-6 d-flex align-items-start flex-column bd-highlight">
             <%= link_to t("book.borrow"), new_book_transaction_path(book_id: @book.id), class: "btn btn-primary" %>
          </div>
       </div>

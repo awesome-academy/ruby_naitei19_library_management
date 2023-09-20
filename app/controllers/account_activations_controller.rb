@@ -2,11 +2,13 @@ class AccountActivationsController < ApplicationController
   before_action :find_user, only: %i(edit update)
 
   def edit
-    if user && !user.activated && user.authenticated?(:activation, params[:id])
-      user.activate
-      log_in user
+    user_not_activated = @user && !@user.activated
+    activation_params_match = @user.authenticated?(:activation, params[:id])
+    if user_not_activated && activation_params_match
+      @user.activate
+      log_in @user
       flash[:success] = t "account_activated"
-      redirect_to user
+      redirect_to @user
     else
       invalid_activation_method
     end
