@@ -17,6 +17,7 @@
             <div class="search-box">
               <%= form_tag admin_authors_path, method: :get do %>
                 <%= text_field_tag :author_search, params[:author_search], placeholder: t("admin.author.search_placeholder"), class: "form-control" %>
+                </br>
                 <%= submit_tag t("admin.author.search_button"), class: "btn btn-primary" %>
               <% end %>
             </div>

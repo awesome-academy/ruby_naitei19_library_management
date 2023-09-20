@@ -15,6 +15,7 @@
                 <%= label_tag :transaction_status %>
                 <%= select_tag :transaction_status, options_for_select([[t("admin.transaction.select.pending"), t("admin.transaction.select.pending")], [t("admin.transaction.select.fail"), t("admin.transaction.select.fail")], [t("admin.transaction.select.success"), t("admin.transaction.select.success")], [t("admin.transaction.select.expire"), t("admin.transaction.select.expire")]], (params[:transaction_status] || t("admin.transaction.select.pending"))), class: "form-control" %>
                 </div>
+                </br>
                 <%= submit_tag t("admin.author.search_button"), class: "btn btn-primary" %>
               <% end %>
             </div>
