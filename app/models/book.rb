@@ -21,10 +21,6 @@ class Book < ApplicationRecord
                                          greater_than_or_equal_to:
                                          Settings.book.amount}
   validates :publisher_id, presence: true
-  validates :average_rating, numericality: {greater_than_or_equal_to:
-                                            Settings.book.rate_min,
-                                            less_than_or_equal_to:
-                                            Settings.book.rate_max}
   validates :author_ids, presence: {message: I18n.t("admin.book.select")}
   validates :category_ids, presence: {message: I18n.t("admin.book.select")}
   scope :search_all, lambda {|query|

@@ -1,6 +1,7 @@
 class Admin::BooksController < Admin::BaseController
   before_action :find_book, except: %i(index new create export_excel)
   before_action :set_books, only: [:index]
+  before_action :remove_images_before_update, only: [:update]
   def index
     @books = @books.paginate(page: params[:page],
                              per_page: Settings.page.limit_items)
@@ -20,7 +21,6 @@ class Admin::BooksController < Admin::BaseController
   def create
     @book = Book.new(book_params)
     if @book.save
-      # create_book_associations
       flash[:success] = t("admin.book.create_success")
       redirect_to admin_book_path(@book)
     else
@@ -45,7 +45,9 @@ class Admin::BooksController < Admin::BaseController
 
   def show; end
 
-  def edit; end
+  def edit
+    @current_images = @book.images
+  end
 
   def destroy
     if @book.destroy
@@ -71,6 +73,16 @@ class Admin::BooksController < Admin::BaseController
 
     flash[:danger] = t("admin.book.not_found")
     redirect_to admin_books_path
+  end
+
+  def remove_images_before_update
+    image_ids_to_remove = params[:remove_image_ids]
+    return if image_ids_to_remove.blank?
+
+    image_ids_to_remove.each do |image_id|
+      image = @book.images.find_by(id: image_id)
+      image.destroy if image.present?
+    end
   end
 
   def set_books
