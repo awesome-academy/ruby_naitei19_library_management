@@ -1,5 +1,5 @@
 <div class="card" style="width: 18rem;">
-  <img src=<%=@book.images[0].image%> class="card-img-top">
+  <%= image_tag @book.images.first.image, alt: @book.title, class: "card-img-top" %>
   <div class="card-body">
     <h4 class="card-title"><%= @book.title %></h4>
     <h5 class="card-title"><%= @book.book_amount %> <%=t("admin.book.remaining")%></h5>

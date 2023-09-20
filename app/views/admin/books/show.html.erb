@@ -38,9 +38,7 @@
               <% if @book.images.any? %>
                 <ul class="book-images">
                   <% @book.images.each do |image| %>
-                    <li>
                       <%= image_tag url_for(image.image), alt: @book.title, class: "book-image" %>
-                    </li>
                   <% end %>
                 </ul>
               <% else %>
@@ -53,7 +51,7 @@
             <dd class="col-sm-9">
               <ul>
                 <% @book.categories.each do |category| %>
-                  <li><%= category.category_name %></li>
+                 <%= category.category_name %>
                 <% end %>
               </ul>
             </dd>
@@ -63,7 +61,7 @@
             <dd class="col-sm-9">
               <ul>
                 <% @book.authors.each do |author| %>
-                  <li><%= author.name %></li>
+                 <%= author.name %>
                 <% end %>
               </ul>
             </dd>
