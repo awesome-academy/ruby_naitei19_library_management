@@ -17,6 +17,7 @@
             <div class="search-box">
               <%= form_tag admin_categories_path, method: :get do %>
                 <%= text_field_tag :category_search, params[:category_search], placeholder: t("admin.category.search_placeholder"), class: "form-control" %>
+                </br>
                 <%= submit_tag t("admin.category.search_button"), class: "btn btn-primary" %>
               <% end %>
             </div>

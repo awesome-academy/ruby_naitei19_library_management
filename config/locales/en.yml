@@ -247,6 +247,7 @@ en:
       destroy_fail: "Failed to destroy category"
       details: "Category Details"
       not_found: "Not found category!"
+      book: "Number of books"
     transaction:
       table:
         id: "ID"
@@ -269,6 +270,17 @@ en:
         accepted: "The transactions is accepted"
         denied: "The transactions is denied"
         cancel: "Cancel"
+    dashboard:
+      user: "All users"
+      book: "All books"
+      author: "All authors"
+      publisher: "All publishers"
+      cagetory: "All cagetories"
+      transaction: "All pending transactions"
+      book_category: "Number of books by category"
+      most_borrowed: "The most borrowed book's categories of the month/year"
+      most_borrowed_month: "Current Month"
+      most_borrowed_year: "Current Year"
   review:
     add_success: "Review has been created"
     add_fail: "Something went wrong"

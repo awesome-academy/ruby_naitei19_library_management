@@ -1,7 +1,7 @@
 <tr>
   <td><%= transaction.id %></td>
   <td><%= transaction.user_name %></td>
-  <td><%=link_to transaction.book_title, book_path(transaction.book) %></td>
+  <td><%=link_to transaction.book_title, admin_book_path(transaction.book)  %></td>
   <td><%= transaction.borrow_date %></td>
   <td><%= transaction.expire_date %></td>
   <td><%= transaction.status %></td>

@@ -11240,12 +11240,11 @@ body {
 }
 
 .book-image {
-  max-width: 300px; 
+  max-width: 300px;
   max-height: 200px;
   width: auto;
   height: auto;
 }
-
 
 .book-images {
   display: flex;
@@ -11255,4 +11254,28 @@ body {
 
 .search-box {
   margin-bottom: 1rem;
+}
+
+/* Tùy chỉnh phần tử cha */
+.transaction-info {
+  background-color: #f7f7f7;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+
+/* Tùy chỉnh phần tử con */
+.transaction-count {
+  margin-top: 10px;
+}
+
+.count-label {
+  font-weight: bold;
+  color: #333;
+}
+
+.count-value {
+  font-size: 24px;
+  color: #007bff;
 }
