@@ -64,6 +64,8 @@ gem "bootstrap-will_paginate", "1.0.0"
 
 gem "will_paginate-bootstrap-style"
 
+gem "whenever", require: false
+
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html]
 # gem "image_processing", "~> 1.2"
 
