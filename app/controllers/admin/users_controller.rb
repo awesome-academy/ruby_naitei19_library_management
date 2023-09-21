@@ -3,7 +3,7 @@ class Admin::UsersController < Admin::BaseController
 
   def index
     name = params[:user_search] || ""
-    @users = User.filtered_by_name(name)
+    @users = User.normal_user.filtered_by_name(name)
                  .paginate(page: params[:page],
                            per_page: Settings.per_page)
   end
