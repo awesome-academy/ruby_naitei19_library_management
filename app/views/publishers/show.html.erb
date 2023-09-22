@@ -43,8 +43,7 @@
             <div class="row row-cols-3">
               <% @publisher.books.map.each do |book| %>
                 <div class="col mt-3">
-                <img src= <%= book.images[0]&.image %>
-                  alt="image" class="w-100 rounded-3">
+                  <%= image_tag url_for(book.images[0]&.image), class: "w-100 rounded-3" %>
                   <p>
                     <%= link_to book.title, book %>
                   </p>
