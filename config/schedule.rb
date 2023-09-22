@@ -28,6 +28,7 @@ set :environment, "development"
 env :PATH, ENV["PATH"]
 env :GEM_PATH, ENV["GEM_PATH"]
 
+#1.minute
 every :day, at: "0:00am" do
   rake "send_expire_notifications"
 end

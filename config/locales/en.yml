@@ -87,6 +87,7 @@ en:
   all_books: "All books"
   following: "Following books"
   favorite_books: "Favorite books"
+  must_greater_date: "must be greater than the current date"
   book:
     name: "Name"
     authors: "Authors"
