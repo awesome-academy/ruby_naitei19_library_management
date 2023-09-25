@@ -10,37 +10,41 @@ class ReviewsController < ApplicationController
     @review = @book.reviews.new review_params
     @review.user_id = current_user.id
 
-    if @review.save
-      update_average_rating
-      flash[:success] = t("review.add_success")
-
-    else
-      flash[:danger] = t("review.add_fail")
-
+    respond_to do |format|
+      if @review.save
+        update_average_rating
+        format.html{redirect_to @book}
+        format.turbo_stream
+      else
+        flash[:danger] = t("review.add_fail")
+      end
     end
-    redirect_to book_path(@book)
   end
 
   def edit; end
 
   def update
-    if @review.update(review_params)
-      update_average_rating
-      flash[:success] = t("review.update_success")
-    else
-      flash.now[:danger] = t("review.update_fail")
+    respond_to do |format|
+      if @review.update(review_params)
+        update_average_rating
+        format.html{redirect_to @book}
+        format.turbo_stream
+      else
+        flash[:danger] = t("review.update_fail")
+      end
     end
-    redirect_to book_path(@book)
   end
 
   def destroy
-    if @review.destroy
-      update_average_rating
-      flash[:success] = t("review.delete_success")
-    else
-      flash[:danger] = t("review.delete_fail")
+    respond_to do |format|
+      if @review.destroy
+        update_average_rating
+        format.html{redirect_to @book}
+        format.turbo_stream
+      else
+        flash[:danger] = t("update.delete_fail")
+      end
     end
-    redirect_to book_path(@book)
   end
 
   private

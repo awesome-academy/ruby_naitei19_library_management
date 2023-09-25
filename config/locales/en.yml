@@ -88,6 +88,7 @@ en:
   following: "Following books"
   favorite_books: "Favorite books"
   must_greater_date: "must be greater than the current date"
+  list_empty: "List book empty"
   book:
     name: "Name"
     authors: "Authors"
@@ -284,7 +285,7 @@ en:
       most_borrowed_year: "Current Year"
   review:
     add_success: "Review has been created"
-    add_fail: "Something went wrong"
+    add_fail: "Some fields has empty"
     update_success: "Review updated successfully."
     update_fail: "Failed to update review."
     delete_success: "Review deleted successfully."

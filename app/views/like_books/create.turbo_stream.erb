@@ -1,0 +1,6 @@
+<%= turbo_stream.update "like_form" do %>
+  <%= render partial: "unlike" %>
+<% end %>
+<%= turbo_stream.update "like_message" do %>
+  <%= like_message(@book) %>
+<% end %>

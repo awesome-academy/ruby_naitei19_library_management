@@ -1,13 +1,12 @@
-<div id="follow_form" class="d-flex flex-row bd-highlight mb-3">
+<div class="d-flex flex-row bd-highlight mb-3">
+  <div id="like_form">
   <% if current_user.books.exists?(@book.id) %>
     <%= render "like_books/unlike" %>
-    <div class="mt-4 px-4">
-      <%= like_message(@book) %>
-    </div>
   <% else %>
     <%= render "like_books/like" %>
-    <div class="mt-4 px-4">
-      <%= @book.user_like_books.count %> <%= t("like.people")%>
-    </div>
   <% end %>
+  </div>
+  <div id="like_message" class="mt-4 px-4">
+    <%= like_message(@book) %>
+  </div>
 </div>
