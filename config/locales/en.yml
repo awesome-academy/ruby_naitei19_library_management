@@ -89,6 +89,8 @@ en:
   favorite_books: "Favorite books"
   must_greater_date: "must be greater than the current date"
   list_empty: "List book empty"
+  date_of_birth: "Date of birth"
+  address: "Address"
   book:
     name: "Name"
     authors: "Authors"
@@ -160,6 +162,8 @@ en:
       edit: "Edit a user"
       search_button: "Search"
       gender: "Gender"
+      date_of_birth: "Date of birth"
+      address: "Address"
       activate: "Activate"
       inactivate: "Inactivate"
       actions: "Actions"

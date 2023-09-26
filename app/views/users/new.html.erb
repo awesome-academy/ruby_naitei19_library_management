@@ -3,23 +3,26 @@
 <div class="form-signin-container">
   <div class="form-signin">
     <%= form_for @user, url: signup_path, html: { class: "form-signin" } do |f| %>
-      <%= render "shared/error_messages", object: f.object  %>
       <h1 class="h3 mb-3 fw-normal"><%= t("sign_up") %></h1>
-      <div class="form-floating">
+      <div class="form-floating margin-bottom-input">
         <%= f.text_field :name, class: "form-control", id: "floatingInput"%>
         <label for="floatingInput"><%= t("name") %></label>
+        <p class="error"><%= show_errors(@user, :name) %></p>
       </div>
-      <div class="form-floating">
+      <div class="form-floating margin-bottom-input">
         <%= f.email_field :email, class: "form-control", id: "floatingInput"%>
         <label for="floatingInput"><%= t("email") %></label>
+        <p class="error"><%= show_errors(@user, :email) %></p>
       </div>
-      <div class="form-floating">
+      <div class="form-floating margin-bottom-input">
         <%= f.password_field :password, class: "form-control", id: "floatingPassword"%>
         <label for="floatingPassword"><%= t("password") %></label>
+        <p class="error"><%= show_errors(@user, :password) %></p>
       </div>
-      <div class="form-floating">
+      <div class="form-floating margin-bottom-input">
         <%= f.password_field :password_confirmation, class: "form-control", id: "floatingPassword"%>
         <label for="floatingPassword"><%= t("password_confirmation") %></label>
+        <p class="error"><%= show_errors(@user, :password_confirmation) %></p>
       </div>
       <%= f.submit t("create_account"), class: "w-100 btn btn-lg btn-primary" %>
     <% end %>

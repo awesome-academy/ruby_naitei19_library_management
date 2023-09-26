@@ -25,6 +25,8 @@ class User < ApplicationRecord
   validates :password, presence: true,
                        length: {minimum: Settings.degit.length_6},
                        allow_nil: true
+  validates :date_of_birth, presence: true,
+                            allow_nil: true
   scope :filtered_by_name, lambda {|name|
     where("name LIKE ?", "%#{name}%") if name.present?
   }
