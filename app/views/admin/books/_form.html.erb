@@ -2,31 +2,36 @@
   <%= render "shared/error_messages", object: f.object  %>
   <div class="form-group">
     <%= f.label :title, t("admin.book.title") %>
-    <%= f.text_field :title, class: "form-control" %>
+    <span class="text-danger"><%= display_errors_for(@book, :title) %></span>
+    <%= f.text_field :title, class: "form-control", placeholder: t("admin.book.title_holder") %>
   </div>
 
   <div class="form-group">
     <%= f.label :description, t("admin.book.description") %>
-    <%= f.text_area :description, class: "form-control" %>
+    <%= f.text_area :description, class: "form-control", placeholder: t("admin.book.description_holder") %>
   </div>
 
   <div class="form-group">
     <%= f.label :published_year, t("admin.book.published_year") %>
-    <%= f.number_field :published_year, class: "form-control" %>
+    <span class="text-danger"><%= display_errors_for(@book, :published_year) %></span>
+    <%= f.number_field :published_year, class: "form-control", placeholder: t("admin.book.published_year_holder")%>
   </div>
 
   <div class="form-group">
     <%= f.label :book_amount, t("admin.book.book_amount") %>
-    <%= f.number_field :book_amount, class: "form-control" %>
+    <span class="text-danger"><%= display_errors_for(@book, :book_amount) %></span>
+    <%= f.number_field :book_amount, class: "form-control", placeholder: t("admin.book.book_amount_holder") %>
   </div>
 
   <div class="form-group">
     <%= f.label :publisher_id, t("admin.book.publisher_id") %>
+    <span class="text-danger"><%= display_errors_for(@book, :publisher_id) %></span>
     <%= f.collection_select :publisher_id, Publisher.all, :id, :name, { prompt: t("admin.book.select_publisher") }, class: "form-control" %>
   </div>
 
   <div class="form-group">
     <%= f.label :category_ids, t("admin.book.categories") %>
+    <span class="text-danger"><%= display_errors_for(@book, :category_ids) %></span>
     <%= f.collection_check_boxes :category_ids, Category.all, :id, :category_name do |cb| %>
       <div class="form-check">
         <%= cb.check_box %>
@@ -37,6 +42,7 @@
 
   <div class="form-group">
     <%= f.label :author_ids, t("admin.book.authors") %>
+    <span class="text-danger"><%= display_errors_for(@book, :author_ids) %></span>
     <%= f.collection_check_boxes :author_ids, Author.all, :id, :name do |cb| %>
       <div class="form-check">
         <%= cb.check_box %>

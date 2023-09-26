@@ -2,16 +2,19 @@
   <%= render "shared/error_messages", object: f.object  %>
   <div class="form-group">
     <%= f.label :name, t("admin.author.name") %>
-    <%= f.text_field :name, class: "form-control" %>
+    <span class="text-danger"><%= display_errors_for(@author, :name) %></span>
+    <%= f.text_field :name, class: "form-control", placeholder: t("admin.author.name_holder") %>
   </div>
 
   <div class="form-group">
     <%= f.label :country, t("admin.author.country") %>
-    <%= f.text_field :country, class: "form-control" %>
+    <span class="text-danger"><%= display_errors_for(@author, :country) %></span>
+    <%= f.text_field :country, class: "form-control", placeholder: t("admin.author.country_holder") %>
   </div>
 
   <div class="form-group">
     <%= f.label :date_of_birth, t("admin.author.date_of_birth") %>
+    <span class="text-danger"><%= display_errors_for(@author, :date_of_birth) %></span>
     <%= f.date_field :date_of_birth, class: "form-control" %>
   </div>
 

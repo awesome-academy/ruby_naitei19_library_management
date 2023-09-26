@@ -7,4 +7,10 @@ module ApplicationHelper
   def formatted_datetime datetime
     datetime.strftime("%H:%M %d/%m/%Y")
   end
+
+  def display_errors_for object, field
+    return unless object.errors[field].any?
+
+    object.errors[field].join(", ")
+  end
 end
