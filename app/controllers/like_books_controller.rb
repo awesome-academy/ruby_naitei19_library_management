@@ -19,7 +19,7 @@ class LikeBooksController < ApplicationController
     respond_to do |format|
       if @liked.save
         format.html{redirect_to @book}
-        format.js
+        format.turbo_stream
       else
         flash[:danger] = t("like.like_fail")
       end
@@ -29,8 +29,8 @@ class LikeBooksController < ApplicationController
   def destroy
     respond_to do |format|
       if @liked.destroy
-        format.html{redirect_to @book}
-        format.js
+        format.html{redirect_to @book, status: :see_other}
+        format.turbo_stream
       else
         flash[:danger] = t("like.unlike_fail")
       end

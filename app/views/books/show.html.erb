@@ -10,7 +10,7 @@
             <p><strong><%= t("book.description")%>:</strong> <%= @book.description %></p>
             <p><strong><%= t("book.amount")%>:</strong> <%= @book.book_amount %></p>
             <p><strong><%= t("book.categories")%>:</strong> <%= @book.categories.pluck(:category_name).join(", ") %></p>
-            <div class="p-2 bd-highlight">
+            <div class="p-2 bd-highlight" id="rating">
                <strong><%= t("book.rate")%>: </strong>
                <%= @book.average_rating.round(1) %>
                <i class="fa fa-star rating-color mb-1"></i>

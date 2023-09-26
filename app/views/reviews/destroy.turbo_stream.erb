@@ -1,0 +1,8 @@
+<%= turbo_stream.update "review_form" do %>
+  <%= render partial: "form_add" %>
+<% end %>
+<%= turbo_stream.update "rating" do %>
+  <strong><%= t("book.rate")%>: </strong>
+  <%= @book.average_rating.round(1) %>
+  <i class="fa fa-star rating-color mb-1"></i>
+<% end %>
