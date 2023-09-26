@@ -202,6 +202,10 @@ en:
       select: "must be selected"
       select_publisher: "Select publisher"
       export: "Export to Excel"
+      book_amount_holder: "Enter 1 positive integer"
+      published_year_holder: "Enter a year"
+      description_holder: "Enter book's description"
+      title_holder: "Enter book's title"
     author:
       new: "Create new author"
       country: "Country"
@@ -221,6 +225,8 @@ en:
       not_found: "Not found author!"
       no_avatar: "No avatar"
       no_image: "No image"
+      name_holder: "Enter the author's name"
+      country_holder: "Enter the author's country"
     publisher:
       new: "Create new publisher"
       details: "Publisher Details"
@@ -239,6 +245,9 @@ en:
       destroy_fail: "Failed to destroy publisher"
       details: "Publisher Details"
       not_found: "Not found publisher!"
+      name_holder: "Enter publisher's name"
+      email_holder: "Enter publisher's email"
+      address_holder: "Enter publisher's address"
     category:
       new: "Create new category"
       name: "Name"
@@ -254,6 +263,7 @@ en:
       details: "Category Details"
       not_found: "Not found category!"
       book: "Number of books"
+      name_holder: "Enter category's name"
     transaction:
       table:
         id: "ID"
