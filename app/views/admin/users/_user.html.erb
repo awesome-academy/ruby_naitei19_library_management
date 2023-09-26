@@ -2,11 +2,13 @@
   <td><%= user.name %></td>
   <td><%= user.email %></td>
   <td><%= user.gender %></td>
+  <td><%= user.date_of_birth %></td>
+  <td><%= user.address %></td>
   <td>
   <% if user.activated%>
-      <%= link_to t("inactivate"), active_admin_user_path(user), data: { "turbo-method": :post}, class: "nav-link"%>
+      <%= link_to t("inactivate"), active_admin_user_path(user), data: { "turbo-method": :post}, class: "nav-link color-inactive"%>
   <% else %>
-      <%= link_to t("activate"), active_admin_user_path(user), data: { "turbo-method": :post}, class: "nav-link" %>
+      <%= link_to t("activate"), active_admin_user_path(user), data: { "turbo-method": :post}, class: "nav-link color-active" %>
   <% end %>
   </td>
 </tr>

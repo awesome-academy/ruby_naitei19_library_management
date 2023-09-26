@@ -3,22 +3,31 @@
 <div class="form-signin-container">
   <div class="form-signin">
     <%= form_with(model: @user) do |f| %>
-      <%= render "shared/error_messages", object: f.object  %>
       <h1 class="h3 mb-3 fw-normal"><%= t("update_profile") %></h1>
       <div class="form-floating">
-        <%= f.text_field :name, class: "form-control", id: "floatingInput"%>
+        <%= f.text_field :name, class: "form-control margin-bottom-input", id: "floatingInput"%>
         <label for="floatingInput"><%= t("name") %></label>
+        <p class="error"><%= show_errors(@user, :name) %></p>
       </div>
       <div class="form-floating">
-        <%= f.email_field :email, class: "form-control", id: "floatingInput", readonly: true %>
+        <%= f.email_field :email, class: "form-control margin-bottom-input", id: "floatingInput", readonly: true %>
         <label for="floatingInput"><%= t("email") %></label>
+        <p class="error"><%= show_errors(@user, :email) %></p>
       </div>
       <div class="form-floating">
-        <%= f.password_field :password, class: "form-control", id: "floatingPassword"%>
+        <%= f.text_field :date_of_birth, class: "form-control margin-bottom-input", id: "floatingInput"%>
+        <label for="floatingInput"><%= t("date_of_birth") %></label>
+      </div>
+      <div class="form-floating">
+        <%= f.text_field :address, class: "form-control margin-bottom-input", id: "floatingInput"%>
+        <label for="floatingInput"><%= t("address") %></label>
+      </div>
+      <div class="form-floating">
+        <%= f.password_field :password, class: "form-control margin-bottom-input", id: "floatingPassword"%>
         <label for="floatingPassword"><%= t("password") %></label>
       </div>
       <div class="form-floating">
-        <%= f.password_field :password_confirmation, class: "form-control", id: "floatingPassword"%>
+        <%= f.password_field :password_confirmation, class: "form-control margin-bottom-input", id: "floatingPassword"%>
         <label for="floatingPassword"><%= t("password_confirmation") %></label>
       </div>
       <%= f.submit t("save_changes"), class: "w-100 btn btn-lg btn-primary" %>
