@@ -15,11 +15,7 @@
           </div>
           <div class="card-body">
             <div class="search-box">
-              <%= form_tag admin_publishers_path, method: :get do %>
-                <%= text_field_tag :publisher_search, params[:publisher_search], placeholder: t("admin.publisher.search_placeholder"), class: "form-control" %>
-                </br>
-                <%= submit_tag t("admin.publisher.search_button"), class: "btn btn-primary" %>
-              <% end %>
+              <%= render "search_form" %>
             </div>
             <table class="table table-bordered">
               <thead >

@@ -1,10 +1,10 @@
 class Admin::PublishersController < Admin::BaseController
   before_action :find_publisher, except: %i(index new create)
   def index
-    name = params[:publisher_search] || ""
-    @publishers = Publisher.filtered_by_name(name).paginate(page: params[:page],
-                                                            per_page:
-                                                            Settings.per_page)
+    @search = Publisher.ransack(params[:q])
+    @publishers = @search.result(distinct: true).paginate(page: params[:page],
+                                                          per_page:
+                                                          Settings.per_page)
   end
 
   def create
