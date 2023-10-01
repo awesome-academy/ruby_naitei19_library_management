@@ -15,4 +15,8 @@ class Author < ApplicationRecord
   scope :filtered_by_name, lambda {|name|
     where("name LIKE ?", "%#{name}%") if name.present?
   }
+
+  def self.ransackable_attributes _auth_object = nil
+    Settings.author_search
+  end
 end
