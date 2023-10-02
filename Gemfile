@@ -12,6 +12,7 @@ gem "rails", "~> 7.0.5"
 gem "rails-i18n"
 gem "rondo_form", "~> 0.2.3"
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
+gem "ransack"
 gem "sprockets-rails"
 
 # Use mysql as the database for Active Record

@@ -143,6 +143,7 @@ en:
     delete: "Are you sure"
     db: "Database"
     page: "Admin Page"
+    search_button: "Search"
     header:
       user: "User"
       book: "Book"
@@ -248,6 +249,9 @@ en:
       name_holder: "Enter publisher's name"
       email_holder: "Enter publisher's email"
       address_holder: "Enter publisher's address"
+      search_by_name: "Search by Name"
+      search_by_email: "Search by Email"
+      search_by_address: "Search by Address"
     category:
       new: "Create new category"
       name: "Name"

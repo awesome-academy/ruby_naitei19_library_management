@@ -7,9 +7,6 @@ class Publisher < ApplicationRecord
   validates :email, presence: true, uniqueness: true,
             length: {maximum: Settings.validate.email.length.max},
             format: {with: Settings.validate.email.regex}
-  scope :filtered_by_name, lambda {|name|
-    where("name LIKE ?", "%#{name}%") if name.present?
-  }
   scope :search_all, lambda {|query|
     joins(:books).where(
       "books.title LIKE :q OR publishers.email LIKE :q
@@ -19,4 +16,8 @@ class Publisher < ApplicationRecord
       q: "%#{query}%"
     )
   }
+
+  def self.ransackable_attributes _auth_object = nil
+    Settings.publisher_search
+  end
 end
