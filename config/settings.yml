@@ -29,3 +29,4 @@ book:
   rate_min: 0
   rate_max: 5
 publisher_search: <%= %w(name email address) %>
+author_search: <%= %w(name country date_of_birth) %>

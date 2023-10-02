@@ -228,6 +228,10 @@ en:
       no_image: "No image"
       name_holder: "Enter the author's name"
       country_holder: "Enter the author's country"
+      search_by_name: "Search by Name"
+      search_by_country: "Search by Country"
+      search_by_dob_from: "Search by Date of birth from"
+      search_by_dob_to: "To"
     publisher:
       new: "Create new publisher"
       details: "Publisher Details"

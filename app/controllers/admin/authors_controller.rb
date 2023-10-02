@@ -1,10 +1,10 @@
 class Admin::AuthorsController < Admin::BaseController
   before_action :find_author, except: %i(index new create)
   def index
-    name = params[:author_search] || ""
-    @authors = Author.filtered_by_name(name).paginate(page: params[:page],
-                                                      per_page:
-                                                      Settings.authors.per_page)
+    @search = Author.ransack(params[:q])
+    @authors = @search.result(distinct: true).paginate(page: params[:page],
+                                                       per_page:
+                                                       Settings.per_page)
   end
 
   def create
