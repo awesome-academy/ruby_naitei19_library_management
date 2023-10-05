@@ -62,3 +62,15 @@ RSpec.configure do |config|
   # config.filter_gems_from_backtrace("gem name")
   config.include FactoryBot::Syntax::Methods
 end
+
+Shoulda::Matchers.configure do |config|
+  config.integrate do |with|
+    with.test_framework :rspec
+    with.library :rails
+
+    with.library :active_record do
+      with.ignored_columns [:created_at, :updated_at]
+      with.ignores_uniqueness_of_attributes_matching(/_id$/)
+    end
+  end
+end
